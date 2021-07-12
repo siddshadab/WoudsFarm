@@ -29,6 +29,10 @@ dependencies:
   google_fonts: ^2.1.0
   shimmer: ^2.0.0
   intl_phone_field: ^2.0.1
+  shared_preferences: ^2.0.6
+  pin_entry_text_field: ^0.1.4
+  firebase_auth: ^2.0.0
+
 
 dev_dependencies:
   flutter_test:
@@ -50,6 +54,7 @@ flutter:
     - assets/images/delete.png
     - assets/images/success.png
     - assets/images/otp-icon.png
+    - assets/images/wouds_farm.jpg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

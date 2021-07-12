@@ -1,4 +1,8 @@
+// @dart=2.9
 import 'package:flutter/material.dart';
+import 'package:wouds_farm/views/mobile/OrderPage.dart';
+import 'package:wouds_farm/views/mobile/RegisterPage.dart';
+import 'package:wouds_farm/views/mobile/otp_page.dart';
 import 'package:wouds_farm/views/tab_desktop/tab_screen.dart';
 
 import 'shared/app_theme.dart';
@@ -22,6 +26,11 @@ class MyApp extends StatelessWidget {
         tablet: TabScreen(),
         desktop: DesktopScreen(),
       ),
+      routes: <String, WidgetBuilder>{
+        '/otpScreen': (BuildContext ctx) => OtpScreen(),
+        '/registration':(BuildContext ctx) => Register(),
+        '/home':(BuildContext ctx) => OrderPage(),
+      },
     );
   }
 }
