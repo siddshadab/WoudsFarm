@@ -1,0 +1,2179 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Woud's Farm">
+
+    <title>Woud's Farm</title>
+
+
+
+    <!--=== Favicon ===-->
+
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+
+
+    <!--=== All Plugins CSS ===-->
+
+    <link href="assets/css/plugins.css" rel="stylesheet">
+
+    <!--=== All Vendor CSS ===-->
+
+    <link href="assets/css/vendor.css" rel="stylesheet">
+
+    <!--=== Main Style CSS ===-->
+
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+
+    <!-- Modernizer JS -->
+
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+<![endif]-->
+
+
+
+</head>
+
+
+
+<body style="background-color:#f6ede8;">
+
+
+
+    <!-- Start Header Area -->
+
+    <header class="header-area">
+        <!-- header top start -->
+        <div class="header-top">
+            <div class="" style="max-width:100%; ">
+                <div class="row col-12 sticky align-items-center">
+                    <div class="col-lg-2">
+                        <div class="logo ">
+                            <a href="#">
+                                <img src="assets/img/logo/logo.png" alt="Brand Logo" height="150" >
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="main-menu-area " style="border: none;">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="main-menu">
+                                            <nav id="mobile-menu">
+                                                <ul>
+                                                    <li class="active"><a href="#">Home</a></li>
+                                                    <li><a href="#">about us</a></li>
+                                                    <li><a href="#">Contact</a></li>
+                                                    <li class="cart " style="display:none;">
+                                                        <button><i class="ion-bag" data-toggle="modal"data-target="#exampleModal-2"  ></i>
+                                                                                                                  <span class="notification" >0</span>
+                                                            <div id="karttqnt_mob"></div>
+                                                        </button>
+                
+                                                        </li>
+                                                </ul>
+                                            </nav>
+                                            <!-- main menu navbar end -->
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-block d-lg-none">
+                                        <div class="mobile-menu">
+                                            </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="header-settings-area">
+                                            <div class="header-top-left">
+                                                <nav>
+                                                    <ul class="d-flex justify-content-center">
+                                                        <li>
+                                                            <div class="dropdown header-top-dropdown">
+                                                                
+                                                                <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    My Account
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="myaccount">
+                                                                    <a class="dropdown-item" href="user_dashboard.php">my account</a>
+                                                                    <a class="dropdown-item" href="include/logout.php" > LogOut</a>
+                                                                </div>
+                                                          
+                                                            </div>
+                                                        </li>
+                                                      
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <div class="header-top-right">
+                                                <div class="header-search-box">
+                                                    <form>
+                                                        <input type="text" placeholder="Search Here">
+                                                        <button><i class="ion-ios-search-strong"></i></button>
+                                                    </form>
+                                                </div>
+                                                <div class="cart">
+                                                    <button><i class="ion-bag" data-toggle="modal"data-target="#exampleModal-2"  ></i>
+                                                                                                        <span class="notification" >0</span>
+                                                        <div id="karttqnt"></div>
+                                                    </button>
+
+                                                </div>
+                                                   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header top end -->
+        <div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:100px;  ">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                               <span aria-hidden="true">&times;</span>
+                                                             </button>
+                                                            </div>
+                                                            <div class="modal-body">
+
+
+                                                                <div class=" pr-lg-50">
+                                                                    <h2>Sign In</h2>
+                                                                   <!--  <form action="" method="POST"> -->
+                                                                        <div class="single-input-item">
+                                                                            <input type="text" pattern="\d+" placeholder="Enter Your Mobile No." required="" id="mobile" name="mobile" maxlength="10" minlength="10">
+                                                                        </div>
+                                                                        <div class="single-input-item " id="otp_div" style="display: none;">
+                                                                            <input type="text" id="otp" placeholder="Enter OTP." required="">
+                                                                        </div> 
+                                                                        <p id="wrongotp" style="display: none; color: red"><b>You Entered Wrong Otp</b></p>
+                                                                        <p id="correctotp" style="display: none; color: green"><b>Thankyou For login</b></p>
+                                                                        <div class="single-input-item" id="sendotp" style="display: block;">
+                                                                            <button onclick="myOtpFunction()" name="submit" value="submit" class="btn btn__bg btn__sqr">Send OTP</button>
+                                                                        </div>
+                                                                        <div class="single-input-item" id="subumitotp" style="display: none;">
+                                                                            <button onclick="mySubmitOtpFunction()" name="submit" value="submit" class="btn btn__bg btn__sqr">Submit OTP</button>
+                                                                        </div>
+                                                                   <!--  </form> -->
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                </div>
+      
+      <!-- otp verify modal -->
+      <div class= "modal fade " id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin:0px; right:0px; padding-right:0px !important;">>
+      <div class="modal-dialog float-right" role="document" style="margin:0px;">
+          <div class="modal-content "style="height:100vh; width:400px; overflow-y:scroll;" >
+                 <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                       </button>
+
+                                                            </div>
+                                                            <div class="modal-body">
+
+
+                                                            <ul class="cart-list " id="kartt">
+                                                            <h3 class="pb-3">Order Summary</h3>
+                                                    <li class="cart-itm"><b> Your Cart is Empty</b></li> 
+                                                         
+                                                        <li class="mini-cart-price">
+                                                            <span class="subtotal">subtotal : </span>
+                                                                                                                        <span class="subtotal-price ml-auto">₹</span>
+                                                        </li>
+                                                        <li class="bill-box">
+                                                         
+                                                         
+                                                         <ul style="width:100%">
+                                                         <li> <h5>Bill Details</h5></li>
+                                                          <li>
+                                                          <span class="float-left">Subtotal</span>
+                                                          <span class=" ml-auto">₹</span>
+                                                          </li>
+                                                          <li>
+                                                          <span class="left">Delivery charge</span>
+                                                          <span class="  ml-auto">0</span>
+                                                          </li>
+                                                          <li>
+                                                          <span class="left">Discount</span>
+                                                          <span class=" ml-auto">0</span>
+                                                          </li>
+                                                          <hr>
+                                                          <li >
+                                                          <span class="left">total</span>
+                                                          <span class=" ml-auto">₹</span>
+                                                          </li>
+                                                          </ul>
+                                                        </li>
+                                                            
+                                                                                                                    <div class="checkout-btn pb-2" data-toggle="modal"data-target="#exampleModal-1">
+                                                            <a href="add_address.html" class="checkout-btn">+ Add Address</a>
+                                                         </div>
+                                                                                                                                                                                <div class="checkout-btn sticky " >
+                                                            <a href="change_address.html" class="checkout-btn">checkout</a>
+                                                         </div>
+                                                                                                                      </ul>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+      
+       </div>
+       <!-- <div id="kartt"></div> -->
+    </header>
+    <script type="text/javascript">
+function myOtpFunction() {
+
+           var mobile = document.getElementById("mobile").value;
+          // alert(mobile);
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_signup.php', //Here you will fetch records      
+            data    : 'mobile='+ mobile, //Pass $user_id            
+            success : function(result) 
+                    { 
+                    document.getElementById("otp_div").style.display = "block";
+                    document.getElementById("sendotp").style.display = "none";
+                   document.getElementById("subumitotp").style.display = "block";
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        });
+}
+
+function mySubmitOtpFunction() {
+
+           var mobile = document.getElementById("mobile").value;
+           var otp = document.getElementById("otp").value;
+          // alert(mobile);
+          // alert(otp);
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_verify_otp.php', //Here you will fetch records      
+            data    : 'mobile='+ mobile+'&otp='+ otp, //Pass $user_id            
+            success : function(result) 
+                    { 
+                        if(result==0){
+                            document.getElementById("wrongotp").style.display = "block";
+                    }else{
+                        document.getElementById("wrongotp").style.display = "none";
+                        document.getElementById("correctotp").style.display = "block";
+                        location.reload();
+
+                    }
+                   /* document.getElementById("otp").style.display = "block";
+                    document.getElementById("sendotp").style.display = "none";
+                   document.getElementById("subumitotp").style.display = "block";*/
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        });
+}
+    </script>
+
+    <!-- end Header Area -->
+
+    <!-- main wrapper start -->
+
+    <main>
+
+        <!-- hero slider area start -->
+
+        <section class="hero-slider-area container-fluid">
+
+<div class="hero-slider-active slider-arrow-style">
+
+
+    <div class="single-slider">
+
+      
+ <div class="hero-bg hero-bg__2 hero-bg__5 img-fluid" height: 90vh;">
+
+<video autoplay muted loop id="myVideo" >
+  <source src="uploads/slider_image/1624972241644.mp4" type="video/mp4">
+</video>
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="content-inner">
+
+                            <!-- <div class="slider-content slider-content__style-2">
+
+                                <h1>Fresh Fruits and Vegetables Collection</h1>
+
+                                <p>We deliver organic fruits and vegetables fresh from<br> our fields to your doorstep </p>
+
+                                <a href="shop.html" class="btn btn__bg">shop now</a>
+
+                            </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="single-slider">
+
+       <div class="hero-bg hero-bg__2 hero-bg__5 img-fluid" style="background-image:url(uploads/slider_image/1624972219612.png);height: 90vh;">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="content-inner">
+
+                            <!-- <div class="slider-content slider-content__style-2">
+
+                                <h1>Fresh Fruits and Vegetables Collection</h1>
+
+                                <p>We deliver organic fruits and vegetables fresh from<br> our fields to your doorstep </p>
+
+                                <a href="shop.html" class="btn btn__bg">shop now</a>
+
+                            </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="single-slider">
+
+        <div class="hero-bg hero-bg__2 hero-bg__5 img-fluid"">
+<video autoplay muted loop id="myVideo">
+  <source src="uploads/slider_image/1624971479434.mp4" type="video/mp4">
+</video>
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="content-inner">
+
+                            <!-- <div class="slider-content slider-content__style-2">
+
+                                <h1>Fresh Fruits and Vegetables Collection</h1>
+
+                                <p>We deliver organic fruits and vegetables fresh from<br> our fields to your doorstep </p>
+
+                                <a href="shop.html" class="btn btn__bg">shop now</a>
+
+                            </div> -->
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+</section>
+
+
+
+        <!-- popular category start -->
+
+        <section class="popular-category bg-gray mt-minus pt-60 pb-60 pb-md-30 pb-sm-30">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="section-title text-center pt-62">
+
+                            <h2>Popular Categories</h2>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+
+                                    <div class="col-lg-3 col-md-6 col-sm-6">
+
+                        <div class="category-single-item mb-md-30 mb-sm-30">
+
+                            <div class="category-item-inner color0 text-center">
+
+                                <div class="category-content">
+
+                                    <h2><a href="">Chicken</a></h2>
+
+                                    <!-- <p>2 product</p> -->
+
+                                </div>
+
+                                <div class="category-thumb">
+
+                                    <a href="">
+
+                                        <img src="uploads/category_image/1.png" alt="">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end single item -->
+
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+
+                        <div class="category-single-item mb-md-30 mb-sm-30">
+
+                            <div class="category-item-inner color1 text-center">
+
+                                <div class="category-content">
+
+                                    <h2><a href="">Mutton</a></h2>
+
+                                    <!-- <p>2 product</p> -->
+
+                                </div>
+
+                                <div class="category-thumb">
+
+                                    <a href="">
+
+                                        <img src="uploads/category_image/2.png" alt="">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end single item -->
+
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+
+                        <div class="category-single-item mb-md-30 mb-sm-30">
+
+                            <div class="category-item-inner color2 text-center">
+
+                                <div class="category-content">
+
+                                    <h2><a href="">See Food</a></h2>
+
+                                    <!-- <p>2 product</p> -->
+
+                                </div>
+
+                                <div class="category-thumb">
+
+                                    <a href="">
+
+                                        <img src="uploads/category_image/3.png" alt="">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end single item -->
+
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+
+                        <div class="category-single-item mb-md-30 mb-sm-30">
+
+                            <div class="category-item-inner color3 text-center">
+
+                                <div class="category-content">
+
+                                    <h2><a href="">Egg</a></h2>
+
+                                    <!-- <p>2 product</p> -->
+
+                                </div>
+
+                                <div class="category-thumb">
+
+                                    <a href="">
+
+                                        <img src="uploads/category_image/4.png" alt="">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end single item -->
+
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+
+                        <div class="category-single-item mb-md-30 mb-sm-30">
+
+                            <div class="category-item-inner color3 text-center">
+
+                                <div class="category-content">
+
+                                    <h2><a href="">Egg</a></h2>
+
+                                    <!-- <p>2 product</p> -->
+
+                                </div>
+
+                                <div class="category-thumb">
+
+                                    <a href="">
+
+                                        <img src="uploads/category_image/5.png" alt="">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end single item -->
+					
+					
+                                        <div class="col-lg-3 col-md-6 col-sm-6">
+
+                        <div class="category-single-item mb-md-30 mb-sm-30">
+
+                            <div class="category-item-inner color3 text-center">
+
+                                <div class="category-content">
+
+                                    <h2><a href="">Egg</a></h2>
+
+                                    <!-- <p>2 product</p> -->
+
+                                </div>
+
+                                <div class="category-thumb">
+
+                                    <a href="">
+
+                                        <img src="uploads/category_image/6.png" alt="">
+
+                                    </a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div> <!-- end single item -->
+                    
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- popular category end -->
+
+
+
+        <!-- product tab area start -->
+
+        <section class="product-tab pt-60 pb-30">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <div class="section-title text-center">
+
+                            <h2>Our Products</h2>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <!-- product tab menu start -->
+
+                        <div class="product-tab-menu pb-30">
+
+                            
+
+                        </div>
+
+                        <!-- product tab menu end -->
+
+                        <div class="tab-content">
+
+                            <div class="tab-pane fade active show" id="tab_one">
+
+                                <div class="product-tab-wrapper">
+
+                                    <div class="row">
+
+
+                                    
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+
+                                            <div class="product-item mb-50">
+
+                                                <div class="product-thumb">
+
+                                                    <a href="">
+
+                                                        <img src="uploads/product_image/1626158569851.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <!-- <div class="quick-view-link">
+
+                                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                        </a>
+
+                                                    </div> -->
+
+                                                    <!-- <div class="quick-view-link">
+                                                        <a href="#quick_view" data-toggle="modal" data-target="#quick_view" data-id="23">
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+                                                        </a>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="product-content text-center">
+
+                                                    <div class="product-name">
+                                                        <h4 class="h5">
+                                                            <a href="">Chicken drumstick</a>
+                                                        </h4>
+                                                        <p style="margin-bottom: 0;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; height: 27px;">Amul Masti Buttermilk is a refreshing milk based natural drink. It is easy to use a low-calorie drink that refreshes you immediately with the goodness of nature. 
+To be taken directly on move (small pack) or at home, parties, picnics etc. (family pack). it is tasted best when chilled.</p>
+                                                    </div>
+                                                    <div class="weight">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="net-w text-left ">
+                                                                                                                                        Net wt: 1 KG                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="gross-w">
+                                                                    Gross: 1 KG                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box pt-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 text-left pt-1">
+                                                                <span class="old-price regular-price"><del>₹185</del></span>
+                                                                <span class="regular-price ">₹176 </span>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-6 " id="button_div23">
+                                                                <button class="btn " id="btn" onclick="myFunctionbutton(23)">add to cart</button>
+                                                            </div>
+                                                            <div class="col-lg-6 pl-5" id="qnt_div23" style="display:none" >
+
+                                                                <div class="pro-qty " onclick="myFunctionbuttonqnt(23)">
+                                                                    <!-- <span class="dec qtybtn"></span> -->
+                                                             <input type="text" name="qnt" id="qnt_23" value="1">
+                                                                    <!-- <input type="hidden" name="qntu" id="qntu" value="1"> -->
+                                                                   <!--  <span class="inc qtybtn"></span> -->
+                                                                </div>
+
+                                                            </div>
+                                                                                                                    </div>
+
+                                                    </div>
+                                                    <!-- <div class="product-action-link">
+                                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Add to cart"><i class="ion-bag"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Compare"><i class="ion-ios-shuffle"></i></a> 
+                                                    </div> -->
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+
+                                            <div class="product-item mb-50">
+
+                                                <div class="product-thumb">
+
+                                                    <a href="">
+
+                                                        <img src="uploads/product_image/1624973470109.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <!-- <div class="quick-view-link">
+
+                                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                        </a>
+
+                                                    </div> -->
+
+                                                    <!-- <div class="quick-view-link">
+                                                        <a href="#quick_view" data-toggle="modal" data-target="#quick_view" data-id="24">
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+                                                        </a>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="product-content text-center">
+
+                                                    <div class="product-name">
+                                                        <h4 class="h5">
+                                                            <a href="">MUTTON BACK CHOP</a>
+                                                        </h4>
+                                                        <p style="margin-bottom: 0;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; height: 27px;">Nandini spiced Buttermilk is an energizing health drink. It is ended from superiority curds and is blended with fresh green chillies, fresh ginger and green coriander leaves. Nandini spiced Buttermilk promotes fitness and easy digestion.</p>
+                                                    </div>
+                                                    <div class="weight">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="net-w text-left ">
+                                                                                                                                        Net wt: 500 ml                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="gross-w">
+                                                                    Gross: 500 ml                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box pt-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 text-left pt-1">
+                                                                <span class="old-price regular-price"><del>₹700</del></span>
+                                                                <span class="regular-price ">₹686 </span>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-6 " id="button_div24">
+                                                                <button class="btn " id="btn" onclick="myFunctionbutton(24)">add to cart</button>
+                                                            </div>
+                                                            <div class="col-lg-6 pl-5" id="qnt_div24" style="display:none" >
+
+                                                                <div class="pro-qty " onclick="myFunctionbuttonqnt(24)">
+                                                                    <!-- <span class="dec qtybtn"></span> -->
+                                                             <input type="text" name="qnt" id="qnt_24" value="1">
+                                                                    <!-- <input type="hidden" name="qntu" id="qntu" value="1"> -->
+                                                                   <!--  <span class="inc qtybtn"></span> -->
+                                                                </div>
+
+                                                            </div>
+                                                                                                                    </div>
+
+                                                    </div>
+                                                    <!-- <div class="product-action-link">
+                                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Add to cart"><i class="ion-bag"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Compare"><i class="ion-ios-shuffle"></i></a> 
+                                                    </div> -->
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+
+                                            <div class="product-item mb-50">
+
+                                                <div class="product-thumb">
+
+                                                    <a href="">
+
+                                                        <img src="uploads/product_image/1626157686231.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <!-- <div class="quick-view-link">
+
+                                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                        </a>
+
+                                                    </div> -->
+
+                                                    <!-- <div class="quick-view-link">
+                                                        <a href="#quick_view" data-toggle="modal" data-target="#quick_view" data-id="25">
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+                                                        </a>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="product-content text-center">
+
+                                                    <div class="product-name">
+                                                        <h4 class="h5">
+                                                            <a href="">Whole chicken</a>
+                                                        </h4>
+                                                        <p style="margin-bottom: 0;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; height: 27px;">Cavins Buttermilk is a fresh & tasty drink which provides natural refreshment. It is really good for health. Best as a summer drink,  it is used widely in India to make the body cool on the hot days. </p>
+                                                    </div>
+                                                    <div class="weight">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="net-w text-left ">
+                                                                                                                                        Net wt: 1 KG                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="gross-w">
+                                                                    Gross: 1 KG                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box pt-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 text-left pt-1">
+                                                                <span class="old-price regular-price"><del>₹210</del></span>
+                                                                <span class="regular-price ">₹206 </span>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-6 " id="button_div25">
+                                                                <button class="btn " id="btn" onclick="myFunctionbutton(25)">add to cart</button>
+                                                            </div>
+                                                            <div class="col-lg-6 pl-5" id="qnt_div25" style="display:none" >
+
+                                                                <div class="pro-qty " onclick="myFunctionbuttonqnt(25)">
+                                                                    <!-- <span class="dec qtybtn"></span> -->
+                                                             <input type="text" name="qnt" id="qnt_25" value="1">
+                                                                    <!-- <input type="hidden" name="qntu" id="qntu" value="1"> -->
+                                                                   <!--  <span class="inc qtybtn"></span> -->
+                                                                </div>
+
+                                                            </div>
+                                                                                                                    </div>
+
+                                                    </div>
+                                                    <!-- <div class="product-action-link">
+                                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Add to cart"><i class="ion-bag"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Compare"><i class="ion-ios-shuffle"></i></a> 
+                                                    </div> -->
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+
+                                            <div class="product-item mb-50">
+
+                                                <div class="product-thumb">
+
+                                                    <a href="product-details.php?id=26">
+
+                                                        <img src="uploads/product_image/1624973364139.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <!-- <div class="quick-view-link">
+
+                                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                        </a>
+
+                                                    </div> -->
+
+                                                    <!-- <div class="quick-view-link">
+                                                        <a href="#quick_view" data-toggle="modal" data-target="#quick_view" data-id="26">
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+                                                        </a>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="product-content text-center">
+
+                                                    <div class="product-name">
+                                                        <h4 class="h5">
+                                                            <a href="">MUTTON MIX BOTI</a>
+                                                        </h4>
+                                                        <p style="margin-bottom: 0;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; height: 27px;">Grab this quick refreshing drink and replenish your energy instantly. It is a delicious milk based drink which is healthy and tasty.</p>
+                                                    </div>
+                                                    <div class="weight">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="net-w text-left ">
+                                                                                                                                        Net wt: 500 ml                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="gross-w">
+                                                                    Gross: 500 ml                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box pt-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 text-left pt-1">
+                                                                <span class="old-price regular-price"><del>₹500</del></span>
+                                                                <span class="regular-price ">₹475 </span>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-6 " id="button_div26">
+                                                                <button class="btn " id="btn" onclick="myFunctionbutton(26)">add to cart</button>
+                                                            </div>
+                                                            <div class="col-lg-6 pl-5" id="qnt_div26" style="display:none" >
+
+                                                                <div class="pro-qty " onclick="myFunctionbuttonqnt(26)">
+                                                                    <!-- <span class="dec qtybtn"></span> -->
+                                                             <input type="text" name="qnt" id="qnt_26" value="1">
+                                                                    <!-- <input type="hidden" name="qntu" id="qntu" value="1"> -->
+                                                                   <!--  <span class="inc qtybtn"></span> -->
+                                                                </div>
+
+                                                            </div>
+                                                                                                                    </div>
+
+                                                    </div>
+                                                    <!-- <div class="product-action-link">
+                                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Add to cart"><i class="ion-bag"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Compare"><i class="ion-ios-shuffle"></i></a> 
+                                                    </div> -->
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+
+                                            <div class="product-item mb-50">
+
+                                                <div class="product-thumb">
+
+                                                    <a href="">
+
+                                                        <img src="uploads/product_image/1626158050135.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <!-- <div class="quick-view-link">
+
+                                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                        </a>
+
+                                                    </div> -->
+
+                                                    <!-- <div class="quick-view-link">
+                                                        <a href="#quick_view" data-toggle="modal" data-target="#quick_view" data-id="27">
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+                                                        </a>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="product-content text-center">
+
+                                                    <div class="product-name">
+                                                        <h4 class="h5">
+                                                            <a href="">Chicken breast boneless</a>
+                                                        </h4>
+                                                        <p style="margin-bottom: 0;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; height: 27px;">Mother Dairy Dahi Cup 100% Natural is a luscious, smooth and well set curd which gives you the flavor of Homemade curd with no the hassles of setting curd at home. Our curd is arranged using the best quality standards making it disinfected. It is regularly thick, reliable and natural lacking the use of any preservatives. It is complete from pasteurized standardized milk which contains 4.5 % milk fat and 10 % milk SNF.</p>
+                                                    </div>
+                                                    <div class="weight">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="net-w text-left ">
+                                                                                                                                        Net wt: 1 KG                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="gross-w">
+                                                                    Gross: 1 KG                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box pt-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 text-left pt-1">
+                                                                <span class="old-price regular-price"><del>₹225</del></span>
+                                                                <span class="regular-price ">₹214 </span>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-6 " id="button_div27">
+                                                                <button class="btn " id="btn" onclick="myFunctionbutton(27)">add to cart</button>
+                                                            </div>
+                                                            <div class="col-lg-6 pl-5" id="qnt_div27" style="display:none" >
+
+                                                                <div class="pro-qty " onclick="myFunctionbuttonqnt(27)">
+                                                                    <!-- <span class="dec qtybtn"></span> -->
+                                                             <input type="text" name="qnt" id="qnt_27" value="1">
+                                                                    <!-- <input type="hidden" name="qntu" id="qntu" value="1"> -->
+                                                                   <!--  <span class="inc qtybtn"></span> -->
+                                                                </div>
+
+                                                            </div>
+                                                                                                                    </div>
+
+                                                    </div>
+                                                    <!-- <div class="product-action-link">
+                                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Add to cart"><i class="ion-bag"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Compare"><i class="ion-ios-shuffle"></i></a> 
+                                                    </div> -->
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+
+                                        <div class="col-lg-4 col-md-4 col-sm-6">
+
+                                            <div class="product-item mb-50">
+
+                                                <div class="product-thumb">
+
+                                                    <a href="">
+
+                                                        <img src="uploads/product_image/1624973295106.jpeg" alt="">
+
+                                                    </a>
+
+                                                    <!-- <div class="quick-view-link">
+
+                                                        <a href="#" data-toggle="modal" data-target="#quick_view">
+
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                        </a>
+
+                                                    </div> -->
+
+                                                    <!-- <div class="quick-view-link">
+                                                        <a href="#quick_view" data-toggle="modal" data-target="#quick_view" data-id="28">
+                                                            <span data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+                                                        </a>
+                                                    </div> -->
+
+                                                </div>
+
+                                                <div class="product-content text-center">
+
+                                                    <div class="product-name">
+                                                        <h4 class="h5">
+                                                            <a href="">MUTTON LEG</a>
+                                                        </h4>
+                                                        <p style="margin-bottom: 0;overflow: hidden;display: -webkit-box;-webkit-line-clamp: 1;-webkit-box-orient: vertical; height: 27px;">All your favorite fruits come together in Kissan Mixed Fruit Jam. A medley of flavours from 8 fruits such as Banana, Papaya, Apple, Pear, Pineapple, Mango, Grape and Orange blended in to one lip smacking jam. Kissan jam is the best jam with the goodness of your favorite 8 fruits. Kissan Mixed Fruit Jam is best partnered with bread to provide yummy on the go breakfast for your kid every morning. Think of different ways to eat it in. Spread it on a crunchy cracker, roll it up in a chapatti, drink it stirred in milk or whip up a bread and Jam delight for your kids breakfast with an assortment of flavours. Started in 1934, Kissan is a popular brand in India. Kissan is more than just jams, ketchups and squashes. Its all about kids eating happily & growing up happily. Kissan Jams yummy and fruit based sweet spread keeps both, mothers & kids happy. The brands reassurance to mothers is that they can make breakfast times fun yet wholesome every morning with the Kissan range of fruit jams that are made with 100% real fruit Ingredients! Remember craving something utterly sweet? This is your answer to that in a packed sweet spread bottle. 
+Features and Benefits:</p>
+                                                    </div>
+                                                    <div class="weight">
+                                                        <div class="row">
+                                                            <div class="col-lg-6">
+                                                                <div class="net-w text-left ">
+                                                                                                                                        Net wt: 500 gm                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6">
+                                                                <div class="gross-w">
+                                                                    Gross: 500 gm                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="price-box pt-1">
+                                                        <div class="row">
+                                                            <div class="col-lg-6 text-left pt-1">
+                                                                <span class="old-price regular-price"><del>₹550</del></span>
+                                                                <span class="regular-price ">₹528 </span>
+                                                            </div>
+                                                            
+                                                            <div class="col-lg-6 " id="button_div28">
+                                                                <button class="btn " id="btn" onclick="myFunctionbutton(28)">add to cart</button>
+                                                            </div>
+                                                            <div class="col-lg-6 pl-5" id="qnt_div28" style="display:none" >
+
+                                                                <div class="pro-qty " onclick="myFunctionbuttonqnt(28)">
+                                                                    <!-- <span class="dec qtybtn"></span> -->
+                                                             <input type="text" name="qnt" id="qnt_28" value="1">
+                                                                    <!-- <input type="hidden" name="qntu" id="qntu" value="1"> -->
+                                                                   <!--  <span class="inc qtybtn"></span> -->
+                                                                </div>
+
+                                                            </div>
+                                                                                                                    </div>
+
+                                                    </div>
+                                                    <!-- <div class="product-action-link">
+                                                         <a href="#" data-toggle="tooltip" title="Wishlist"><i class="ion-android-favorite-outline"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Add to cart"><i class="ion-bag"></i></a> 
+                                                        <a href="#" data-toggle="tooltip" title="Compare"><i class="ion-ios-shuffle"></i></a> 
+                                                    </div> -->
+                                                </div>
+
+
+                                            </div>
+
+                                        </div>
+
+                                        
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- product tab area end -->
+
+
+
+        <!-- choose us and testimonial area start -->
+
+        <!-- choose us and testimonial area start -->
+
+
+
+        <!-- best sellers area start -->
+
+        <section class="bg-gray pt-60 pb-60 pb-lg-30 pb-md-30 pb-sm-30">
+
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-8">
+                                                 <div class="best-sellers-banner">
+
+                            <img src="uploads/product_image/1626158569851.jpeg" alt="" width="800px" height="600px">
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-4">
+
+                        <div class="best-sellers-content pt-md-60 pt-sm-60">
+
+                            <div class="row">
+
+                                <div class="col-12">
+
+                                    <div class="section-title section-title__2">
+
+                                        <h2>best sellers</h2>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+
+                                <div class="col-12">
+
+
+
+                                
+
+                                    <div class="single-item mb-30">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1626158569851.jpeg" style="height: 146px;" alt="">
+
+                                            </a>
+
+                                            <!-- <div class="quick-view-link">
+
+                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+
+                                                        data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                </a>
+
+                                            </div> -->
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="tag-cate">
+
+                                                <a href="">Chicken drumstick</a>
+
+                                            </div>
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">Chicken drumstick</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹176</span>
+
+                                                <span class="old-price"><del>₹185</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    
+
+                                    <div class="single-item mb-30">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1624973470109.jpeg" style="height: 146px;" alt="">
+
+                                            </a>
+
+                                            <!-- <div class="quick-view-link">
+
+                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+
+                                                        data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                </a>
+
+                                            </div> -->
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="tag-cate">
+
+                                                <a href="">MUTTON BACK CHOP</a>
+
+                                            </div>
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">MUTTON BACK CHOP</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹686</span>
+
+                                                <span class="old-price"><del>₹700</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    
+
+                                    <div class="single-item mb-30">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1626157686231.jpeg" style="height: 146px;" alt="">
+
+                                            </a>
+
+                                            <!-- <div class="quick-view-link">
+
+                                                <a href="#" data-toggle="modal" data-target="#quick_view"> <span
+
+                                                        data-toggle="tooltip" title="Quick view"><i class="ion-ios-eye-outline"></i></span>
+
+                                                </a>
+
+                                            </div> -->
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="tag-cate">
+
+                                                <a href="">Whole chicken</a>
+
+                                            </div>
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">Whole chicken</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹206</span>
+
+                                                <span class="old-price"><del>₹210</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                    
+
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- best sellers area end -->
+
+
+
+        <!-- banner statistic area start -->
+
+        <div class="banner-statistics pt-60 pb-60 pb-lg-30 pb-md-30 pb-sm-30">
+
+            <div class="container">
+
+                <div class="row">
+
+                
+                  
+
+                    
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- banner statistic area end -->
+
+
+    </main>
+
+    <!-- main wrapper end -->
+
+
+
+    <!-- Quick view modal start -->
+
+    <!-- Quick view modal end -->
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{   
+	$('#quick_view').on('show.bs.modal', function (e) 
+	{        
+		var p_id = $(e.relatedTarget).data('id'); 
+		$.ajax(
+		{            
+			type : 'POST',            
+			url  : 'ajax_modal.php', //Here you will fetch records      
+			data    : 'pid='+ p_id, //Pass $user_id            
+			success : function(result) 
+					{ 
+					//alert('success'+result); 
+						$('.modalbody').html(result); //Show fetched data from database
+					},
+			error   : function(result) 
+					{ 
+						alert('error'+result); 
+					}
+		});      
+	});
+});
+ // For editting data in modal popup with Dynamic ID passing close----------->
+	</script>
+
+    <!-- Quick view modal start -->
+    <div class="modal" id="quick_view">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modalbody">
+                </div>
+            </div>
+        </div>
+    </div>
+	
+    <!-- Quick view modal end -->
+
+
+
+
+
+    <!--== Start Footer Area Wrapper ==-->
+  <script>
+function myFunctionbutton(p_id) {
+    
+    /*var btn = document.getElementById('btn');
+        btn.disabled = true;*/
+ 
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_add_to_kart.php', //Here you will fetch records      
+            data    : 'pid='+ p_id, //Pass $user_id            
+            success : function(result) 
+                    { 
+                    //alert('success'+result); 
+                    $('#kartt').html(result); //Show fetched data from database
+                    $('#karthide').hide(); 
+                    myFunctioncartqnt();
+                    document.getElementById("button_div"+p_id).style.display = "none";
+                    document.getElementById("qnt_div"+p_id).style.display = "block";
+
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+
+function myFunctionbuttonqnt(pidd) {
+   var qnt=document.getElementById("qnt_"+pidd).value;  
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_update_kart_qnt.php', //Here you will fetch records      
+            data    : 'pid='+ pidd+'&qnt='+qnt, //Pass $user_id            
+            success : function(result) 
+                    { 
+                        myFunctioncartqnt();
+                        $('#kartt').html(result); //Show fetched data from database
+                        $('#karthide').hide(); 
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+</script>
+<script type="text/javascript">
+
+function myFunctiondelet(cart_id,p_id) {
+    //alert(p_id);
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_delet_kart_product.php', //Here you will fetch records      
+            data    : 'cart_id='+ cart_id, //Pass $user_id            
+            success : function(result) 
+                    {   myFunctioncartqnt();
+                        $('#kartt').html(result); //Show fetched data from database
+                        $('#karthide').hide(); 
+                        document.getElementById("button_div"+p_id).style.display = "block";
+                         document.getElementById("qnt_div"+p_id).style.display = "none";
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+function myFunctioncartqnt() {
+
+    $.ajax(
+        {            
+            type : 'GET',            
+            url  : 'ajax_cart_qnt.php', //Here you will fetch records                
+            success : function(result) 
+                    { 
+                        $('#karttqnt').html(result);
+                        $('#karttqnt_mob').html(result);
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+function myFunctiondeliveryslot(delivery_slot) {
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_session_value.php', //Here you will fetch records      
+            data    : 'delivery_slot='+ delivery_slot+'&type=delivery', //Pass $user_id            
+            success : function(result) 
+                    {   myFunctioncartqnt();
+                       document.getElementById("buttondisabled").style.display = "none";
+                        document.getElementById("buttonenabled").style.display = "block";
+                        $('#exampleModal').modal('hide');
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+function myFunctionorder(total_amount) {
+  
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_session_value.php', //Here you will fetch records      
+            data    : 'total_order_amount='+ total_amount, //Pass $user_id            
+            success : function(result) 
+                    {   
+                       window.location = "order_process.php";
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+</script>
+<footer class="footer-wrapper">
+
+<!-- footer main area start -->
+
+<div class="footer-main-area">
+
+    <div class="container">
+
+        <div class="footer-main-inner bdr-top pt-56 pb-60 pb-md-20 pb-sm-20">
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>contact info</h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <ul class="location-wrap">
+
+                                <li>
+
+                                    <h6 class="title">location:</h6>
+
+                                    <p>Bandra(B)</p>
+
+                                </li>
+
+                                <li>
+
+                                    <h6 class="title">call us now:</h6>
+
+                                    <p>+91 9930945450<br>+91 9920556550</p>
+
+                                </li>
+
+                                <li>
+
+                                    <h6 class="title">email:</h6>
+
+                                    <p><a href="#">info@woudsfarm.com</a><br><a href="#">info@woudsfarm.com</a></p>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>new arrivals</h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <ul class="category-list">
+
+                            
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1626158569851.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">Chicken drumstick</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹176</span>
+
+                                                <span class="old-price"><del>₹185</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1624973470109.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">MUTTON BACK CHOP</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹686</span>
+
+                                                <span class="old-price"><del>₹700</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1626157686231.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">Whole chicken</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹206</span>
+
+                                                <span class="old-price"><del>₹210</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>Best Seller product</h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <ul class="category-list">
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1626158050135.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">Chicken breast boneless</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹214</span>
+
+                                                <span class="old-price"><del>₹225</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1626157686231.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=25">Whole chicken</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹206</span>
+
+                                                <span class="old-price"><del>₹210</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="">
+
+                                                <img src="uploads/product_image/1624973107451.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="">MUTTON FRONT CHOP</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹1372</span>
+
+                                                <span class="old-price"><del>₹1400</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>Follow us on </h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <div class="newsletter-desc text-center">
+
+                             
+
+<!-- 
+                                <form id="mc-form">
+
+                                    <input type="email" id="mc-email" autocomplete="off" placeholder="Your email address">
+
+                                    <button id="mc-submit"><i class="ion-paper-airplane"></i>subscribe</button>
+
+                                </form> -->
+ 
+                                <div class="share-icon text-center pl-5">
+                                    
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                                <!-- mailchimp-alerts Start -->
+
+                                <div class="mailchimp-alerts">
+
+                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+
+                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+
+                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+
+                                </div>
+
+                                <!-- mailchimp-alerts end -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- footer main area end -->
+
+
+
+<!-- footer bottom area start -->
+
+<div class="footer-bootom bg-gray pt-20 pb-20">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="copyright-text text-center text-md-left">
+
+                    <p>© 2021 <b>Woud's Farm</b></p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <!-- <div class="payment-method text-md-right text-center">
+
+                    <img src="assets/img/payment.png" alt="">
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- footer bottom area end -->
+
+
+
+</footer>
+
+<!--== End Footer Area Wrapper ==-->
+
+
+
+<!-- Scroll to top start -->
+
+<div class="scroll-top not-visible">
+
+<i class="fa fa-angle-up"></i>
+
+</div>
+
+<!-- Scroll to Top End -->
+
+
+
+<!--=======================Javascript============================-->
+
+<!--=== All Vendor Js ===-->
+
+<script src="assets/js/vendor.js"></script>
+
+<!--=== All Plugins Js ===-->
+
+<script src="assets/js/plugins.js"></script>
+
+<!--=== Active Js ===-->
+
+<script src="assets/js/active.js"></script>
+
+</body>
+
+
+
+</html>

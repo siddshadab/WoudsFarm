@@ -1,0 +1,1101 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+
+
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="Woud's Farm">
+
+    <title>Woud's Farm</title>
+
+
+
+    <!--=== Favicon ===-->
+
+    <link rel="shortcut icon" href="assets/img/favicon.png" type="image/x-icon" />
+
+
+
+    <!--=== All Plugins CSS ===-->
+
+    <link href="assets/css/plugins.css" rel="stylesheet">
+
+    <!--=== All Vendor CSS ===-->
+
+    <link href="assets/css/vendor.css" rel="stylesheet">
+
+    <!--=== Main Style CSS ===-->
+
+    <link href="assets/css/style.css" rel="stylesheet">
+
+
+
+    <!-- Modernizer JS -->
+
+    <script src="assets/js/modernizr-2.8.3.min.js"></script>
+
+
+
+    <!--[if lt IE 9]>
+
+<script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+
+<script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+
+<![endif]-->
+
+
+
+</head>
+
+
+
+<body style="background-color:#f6ede8;">
+
+
+
+    <!-- Start Header Area -->
+
+    <header class="header-area">
+        <!-- header top start -->
+        <div class="header-top">
+            <div class="" style="max-width:100%; ">
+                <div class="row col-12 sticky align-items-center">
+                    <div class="col-lg-2">
+                        <div class="logo ">
+                            <a href="index.php">
+                                <img src="assets/img/logo/logo.png" alt="Brand Logo" height="150">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="main-menu-area " style="border: none;">
+                            <div class="">
+                                <div class="row">
+                                    <div class="col-5">
+                                        <div class="main-menu">
+                                            <nav id="mobile-menu">
+                                                <ul>
+                                                    <li class="active"><a href="index.php">Home</a></li>
+                                                    <li><a href="#">about us</a></li>
+                                                    <li><a href="#">Contact</a></li>
+                                                    <li class="cart " style="display:none;">
+                                                        <button><i class="ion-bag" data-toggle="modal"data-target="#exampleModal-2"  ></i>
+                                                                                                                  <span class="notification" >4</span>
+                                                            <div id="karttqnt_mob"></div>
+                                                        </button>
+                
+                                                        </li>
+                                                </ul>
+                                            </nav>
+                                            <!-- main menu navbar end -->
+                                        </div>
+                                    </div>
+                                    <div class="col-12 d-block d-lg-none">
+                                        <div class="mobile-menu">
+                                            </div>
+                                    </div>
+                                    <div class="col-7">
+                                        <div class="header-settings-area">
+                                            <div class="header-top-left">
+                                                <nav>
+                                                    <ul class="d-flex justify-content-center">
+                                                        <li>
+                                                            <div class="dropdown header-top-dropdown">
+                                                                
+                                                                <a class="dropdown-toggle" id="myaccount" data-toggle="dropdown"
+                                                                    aria-haspopup="true" aria-expanded="false">
+                                                                    My Account
+                                                                    <i class="fa fa-angle-down"></i>
+                                                                </a>
+                                                                <div class="dropdown-menu" aria-labelledby="myaccount">
+                                                                    <a class="dropdown-item" href="user_dashboard.php">my account</a>
+                                                                    <a class="dropdown-item" href="include/logout.php" > LogOut</a>
+                                                                </div>
+                                                          
+                                                            </div>
+                                                        </li>
+                                                      
+                                                    </ul>
+                                                </nav>
+                                            </div>
+                                            <div class="header-top-right">
+                                                <div class="header-search-box">
+                                                    <form>
+                                                        <input type="text" placeholder="Search Here">
+                                                        <button><i class="ion-ios-search-strong"></i></button>
+                                                    </form>
+                                                </div>
+                                                <div class="cart">
+                                                    <button><i class="ion-bag" data-toggle="modal"data-target="#exampleModal-2"  ></i>
+                                                                                                        <span class="notification" >4</span>
+                                                        <div id="karttqnt"></div>
+                                                    </button>
+
+                                                </div>
+                                                   
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header top end -->
+        <div class="modal fade" id="exampleModal-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="top:100px;  ">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                               <span aria-hidden="true">&times;</span>
+                                                             </button>
+                                                            </div>
+                                                            <div class="modal-body">
+
+
+                                                                <div class=" pr-lg-50">
+                                                                    <h2>Sign In</h2>
+                                                                   <!--  <form action="" method="POST"> -->
+                                                                        <div class="single-input-item">
+                                                                            <input type="text" pattern="\d+" placeholder="Enter Your Mobile No." required="" id="mobile" name="mobile" maxlength="10" minlength="10">
+                                                                        </div>
+                                                                        <div class="single-input-item " id="otp_div" style="display: none;">
+                                                                            <input type="text" id="otp" placeholder="Enter OTP." required="">
+                                                                        </div> 
+                                                                        <p id="wrongotp" style="display: none; color: red"><b>You Entered Wrong Otp</b></p>
+                                                                        <p id="correctotp" style="display: none; color: green"><b>Thankyou For login</b></p>
+                                                                        <div class="single-input-item" id="sendotp" style="display: block;">
+                                                                            <button onclick="myOtpFunction()" name="submit" value="submit" class="btn btn__bg btn__sqr">Send OTP</button>
+                                                                        </div>
+                                                                        <div class="single-input-item" id="subumitotp" style="display: none;">
+                                                                            <button onclick="mySubmitOtpFunction()" name="submit" value="submit" class="btn btn__bg btn__sqr">Submit OTP</button>
+                                                                        </div>
+                                                                   <!--  </form> -->
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                </div>
+      
+      <!-- otp verify modal -->
+      <div class= "modal fade " id="exampleModal-2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" style="margin:0px; right:0px; padding-right:0px !important;">>
+      <div class="modal-dialog float-right" role="document" style="margin:0px;">
+          <div class="modal-content "style="height:100vh; width:400px; overflow-y:scroll;" >
+                 <div class="modal-header">
+                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+                                       </button>
+
+                                                            </div>
+                                                            <div class="modal-body">
+
+
+                                                            <ul class="cart-list " id="kartt">
+                                                            <h3 class="pb-3">Order Summary</h3>
+                                                                                                            
+                                                        <li class="cart-itm">
+                                                           <div class="cart-img">
+                                                                <a href="product-details.php?id=25"><img src="uploads/product_image/1626157686231.jpeg"
+                                                                        alt=""></a>
+                                                            </div>
+                                                            <div class="cart-info ">
+                                                                <h4><a href="product-details.php?id=25">Whole chicken</a></h4>
+                                                                <span class="cart-qty">Qty: 2</span>
+                                                                <span class="float-right">₹206</span>
+                                                            </div>
+                                                            <div class="del-icon" onclick="myFunctiondelet(1297,25)">
+                                                                <i class="fa fa-times"></i>
+                                                            </div>
+                                                        </li>
+                                                                                                                
+                                                        <li class="cart-itm">
+                                                           <div class="cart-img">
+                                                                <a href="product-details.php?id=28"><img src="uploads/product_image/1624973295106.jpeg"
+                                                                        alt=""></a>
+                                                            </div>
+                                                            <div class="cart-info ">
+                                                                <h4><a href="product-details.php?id=28">MUTTON LEG</a></h4>
+                                                                <span class="cart-qty">Qty: 1</span>
+                                                                <span class="float-right">₹528</span>
+                                                            </div>
+                                                            <div class="del-icon" onclick="myFunctiondelet(1296,28)">
+                                                                <i class="fa fa-times"></i>
+                                                            </div>
+                                                        </li>
+                                                                                                                
+                                                        <li class="cart-itm">
+                                                           <div class="cart-img">
+                                                                <a href="product-details.php?id=27"><img src="uploads/product_image/1626158050135.jpeg"
+                                                                        alt=""></a>
+                                                            </div>
+                                                            <div class="cart-info ">
+                                                                <h4><a href="product-details.php?id=27">Chicken breast boneless</a></h4>
+                                                                <span class="cart-qty">Qty: 1</span>
+                                                                <span class="float-right">₹214</span>
+                                                            </div>
+                                                            <div class="del-icon" onclick="myFunctiondelet(1295,27)">
+                                                                <i class="fa fa-times"></i>
+                                                            </div>
+                                                        </li>
+                                                         
+                                                         
+                                                        <li class="mini-cart-price">
+                                                            <span class="subtotal">subtotal : </span>
+                                                                                                                        <span class="subtotal-price ml-auto">₹1154</span>
+                                                        </li>
+                                                        <li class="bill-box">
+                                                         
+                                                         
+                                                         <ul style="width:100%">
+                                                         <li> <h5>Bill Details</h5></li>
+                                                          <li>
+                                                          <span class="float-left">Subtotal</span>
+                                                          <span class=" ml-auto">₹1154</span>
+                                                          </li>
+                                                          <li>
+                                                          <span class="left">Delivery charge</span>
+                                                          <span class="  ml-auto">0</span>
+                                                          </li>
+                                                          <li>
+                                                          <span class="left">Discount</span>
+                                                          <span class=" ml-auto">0</span>
+                                                          </li>
+                                                          <hr>
+                                                          <li >
+                                                          <span class="left">total</span>
+                                                          <span class=" ml-auto">₹1154</span>
+                                                          </li>
+                                                          </ul>
+                                                        </li>
+                                                            
+                                                                                                                    <div class="checkout-btn pb-2" data-toggle="modal"data-target="#exampleModal-1">
+                                                            <a href="add_address.html" class="checkout-btn">+ Add Address</a>
+                                                         </div>
+                                                                                                                                                                                <div class="checkout-btn sticky " >
+                                                            <a href="add_address.html" class="checkout-btn">checkout</a>
+                                                         </div>
+                                                                                                                      </ul>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+      
+       </div>
+       <!-- <div id="kartt"></div> -->
+    </header>
+    <script type="text/javascript">
+function myOtpFunction() {
+
+           var mobile = document.getElementById("mobile").value;
+          // alert(mobile);
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_signup.php', //Here you will fetch records      
+            data    : 'mobile='+ mobile, //Pass $user_id            
+            success : function(result) 
+                    { 
+                    document.getElementById("otp_div").style.display = "block";
+                    document.getElementById("sendotp").style.display = "none";
+                   document.getElementById("subumitotp").style.display = "block";
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        });
+}
+
+function mySubmitOtpFunction() {
+
+           var mobile = document.getElementById("mobile").value;
+           var otp = document.getElementById("otp").value;
+          // alert(mobile);
+          // alert(otp);
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_verify_otp.php', //Here you will fetch records      
+            data    : 'mobile='+ mobile+'&otp='+ otp, //Pass $user_id            
+            success : function(result) 
+                    { 
+                        if(result==0){
+                            document.getElementById("wrongotp").style.display = "block";
+                    }else{
+                        document.getElementById("wrongotp").style.display = "none";
+                        document.getElementById("correctotp").style.display = "block";
+                        location.reload();
+
+                    }
+                   /* document.getElementById("otp").style.display = "block";
+                    document.getElementById("sendotp").style.display = "none";
+                   document.getElementById("subumitotp").style.display = "block";*/
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        });
+}
+    </script>
+
+    <!-- end Header Area -->
+    <!-- main wrapper start -->
+    <main>
+        <!-- breadcrumb area start -->
+       <!--  <div class="breadcrumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcrumb-wrap text-center">
+                            <nav aria-label="breadcrumb">
+                                <h2>shop</h2>
+                                <ul class="breadcrumb">
+                                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                    <li class="breadcrumb-item active" aria-current="page">checkout</li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        <!-- breadcrumb area end -->
+
+
+
+        <!-- multistep form -->
+
+
+
+
+
+
+        <!-- checkout main wrapper start -->
+        <div class="checkout-page-wrapper pt-60 pb-54">
+
+
+            <div class="container">
+                <div class="progress-container">
+                    <div class="progress" id="progress"> </div>
+                    <div class="circle active">1
+
+                    </div>
+
+                    <div class="circle">2</div>
+                    <div class="circle">3</div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="checkout-add pb-60">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-12 m-auto address-box pr-0">
+                        <div class="row">
+                            <div class="col-lg-6 ">
+                                <div class="address-form  pt-56 pb-60">
+                                    <h2>add new location</h2>
+                                    <form id="address-form" action="" method="post" class="">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <select name="address_type" required="">
+                                                  <option value="">Select Address type</option>
+                                                  <option value="OFFICE">OFFICE</option>
+                                                  <option value="HOME">HOME</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input name="name" placeholder="Enter Name *" type="text" required="">
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input name="location" placeholder="Enter Location *" type="text" required="">
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input name="street_details" placeholder="Flat no. /building name /Street no. *" type="text" required="">
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input name="landmark" placeholder="Landmark (optional)" type="text" required="">
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input name="city" placeholder="City*" type="text">
+                                            </div>
+                                            <div class="col-lg-12">
+                                                <input name="mobileno" placeholder="Mobile no.*" type="text">
+                                            </div>
+                                            <div class="col-12">
+
+                                                <div class="contact-btn">
+                                                    <button type="submit" value="submit" name="submit" class="btn btn__bg btn__sqr" type="submit">Save &
+                                                            Proceed</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 d-flex justify-content-center">
+                                                <p class="form-messege"></p>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-5 pl-0 pr-0 pt-30 pb-30">
+
+                                <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=100%25&amp;hl=en&amp;q=mumbai+(Location)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed">
+                                    </iframe>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- checkout main wrapper end -->
+
+    </main>
+
+
+
+
+    <!-- main wrapper end -->
+
+      <!--== Start Footer Area Wrapper ==-->
+  <script>
+function myFunctionbutton(p_id) {
+    
+    /*var btn = document.getElementById('btn');
+        btn.disabled = true;*/
+ 
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_add_to_kart.php', //Here you will fetch records      
+            data    : 'pid='+ p_id, //Pass $user_id            
+            success : function(result) 
+                    { 
+                    //alert('success'+result); 
+                    $('#kartt').html(result); //Show fetched data from database
+                    $('#karthide').hide(); 
+                    myFunctioncartqnt();
+                    document.getElementById("button_div"+p_id).style.display = "none";
+                    document.getElementById("qnt_div"+p_id).style.display = "block";
+
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+
+function myFunctionbuttonqnt(pidd) {
+   var qnt=document.getElementById("qnt_"+pidd).value;  
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_update_kart_qnt.php', //Here you will fetch records      
+            data    : 'pid='+ pidd+'&qnt='+qnt, //Pass $user_id            
+            success : function(result) 
+                    { 
+                        myFunctioncartqnt();
+                        $('#kartt').html(result); //Show fetched data from database
+                        $('#karthide').hide(); 
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+</script>
+<script type="text/javascript">
+
+function myFunctiondelet(cart_id,p_id) {
+    //alert(p_id);
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_delet_kart_product.php', //Here you will fetch records      
+            data    : 'cart_id='+ cart_id, //Pass $user_id            
+            success : function(result) 
+                    {   myFunctioncartqnt();
+                        $('#kartt').html(result); //Show fetched data from database
+                        $('#karthide').hide(); 
+                        document.getElementById("button_div"+p_id).style.display = "block";
+                         document.getElementById("qnt_div"+p_id).style.display = "none";
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+function myFunctioncartqnt() {
+
+    $.ajax(
+        {            
+            type : 'GET',            
+            url  : 'ajax_cart_qnt.php', //Here you will fetch records                
+            success : function(result) 
+                    { 
+                        $('#karttqnt').html(result);
+                        $('#karttqnt_mob').html(result);
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+function myFunctiondeliveryslot(delivery_slot) {
+
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_session_value.php', //Here you will fetch records      
+            data    : 'delivery_slot='+ delivery_slot+'&type=delivery', //Pass $user_id            
+            success : function(result) 
+                    {   myFunctioncartqnt();
+                       document.getElementById("buttondisabled").style.display = "none";
+                        document.getElementById("buttonenabled").style.display = "block";
+                        $('#exampleModal').modal('hide');
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+
+function myFunctionorder(total_amount) {
+  
+    $.ajax(
+        {            
+            type : 'POST',            
+            url  : 'ajax_session_value.php', //Here you will fetch records      
+            data    : 'total_order_amount='+ total_amount, //Pass $user_id            
+            success : function(result) 
+                    {   
+                       window.location = "order_process.php";
+                    },
+            error   : function(result) 
+                    { 
+                        alert('error'+result); 
+                    }
+        }); 
+}
+</script>
+<footer class="footer-wrapper">
+
+<!-- footer main area start -->
+
+<div class="footer-main-area">
+
+    <div class="container">
+
+        <div class="footer-main-inner bdr-top pt-56 pb-60 pb-md-20 pb-sm-20">
+
+            <div class="row">
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>contact info</h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <ul class="location-wrap">
+
+                                <li>
+
+                                    <h6 class="title">location:</h6>
+
+                                    <p>Your address goes here</p>
+
+                                </li>
+
+                                <li>
+
+                                    <h6 class="title">call us now:</h6>
+
+                                    <p>0123456789<br>0123456789</p>
+
+                                </li>
+
+                                <li>
+
+                                    <h6 class="title">email:</h6>
+
+                                    <p><a href="#">demo@example.com</a><br><a href="#">demo@example.com</a></p>
+
+                                </li>
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>new arrivals</h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <ul class="category-list">
+
+                            
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="product-details.php?id=23">
+
+                                                <img src="uploads/product_image/1626158569851.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=23">Chicken drumstick</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹176</span>
+
+                                                <span class="old-price"><del>₹185</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="product-details.php?id=24">
+
+                                                <img src="uploads/product_image/1624973470109.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=24">MUTTON BACK CHOP</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹686</span>
+
+                                                <span class="old-price"><del>₹700</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="product-details.php?id=25">
+
+                                                <img src="uploads/product_image/1626157686231.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=25">Whole chicken</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹206</span>
+
+                                                <span class="old-price"><del>₹210</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>Best Seller product</h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <ul class="category-list">
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="product-details.php?id=27">
+
+                                                <img src="uploads/product_image/1626158050135.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=27">Chicken breast boneless</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹214</span>
+
+                                                <span class="old-price"><del>₹225</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="product-details.php?id=30">
+
+                                                <img src="uploads/product_image/1626159413774.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=30">Chicken curry cut with skin</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹95</span>
+
+                                                <span class="old-price"><del>₹105</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                                <li>
+
+                                    <div class="single-item single-item__footer-category">
+
+                                        <div class="product-thumb">
+
+                                            <a href="product-details.php?id=23">
+
+                                                <img src="uploads/product_image/1626158569851.jpeg" style="height: 78px; width: 78px;" alt="">
+
+                                            </a>
+
+                                        </div>
+
+                                        <div class="product-description">
+
+                                            <div class="product-name">
+
+                                                <h4 class="h5">
+
+                                                    <a href="product-details.php?id=23">Chicken drumstick</a>
+
+                                                </h4>
+
+                                            </div>
+
+                                            <div class="price-box">
+
+                                                <span class="regular-price">₹176</span>
+
+                                                <span class="old-price"><del>₹185</del></span>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li>
+
+                                
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+
+                    <div class="footer-widget">
+
+                        <div class="footer-widget-title">
+
+                            <h4>Follow us on </h4>
+
+                        </div>
+
+                        <div class="footer-widget-body">
+
+                            <div class="newsletter-desc text-center">
+
+                             
+
+<!-- 
+                                <form id="mc-form">
+
+                                    <input type="email" id="mc-email" autocomplete="off" placeholder="Your email address">
+
+                                    <button id="mc-submit"><i class="ion-paper-airplane"></i>subscribe</button>
+
+                                </form> -->
+ 
+                                <div class="share-icon text-center pl-5">
+                                    
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                </div>
+                                <!-- mailchimp-alerts Start -->
+
+                                <div class="mailchimp-alerts">
+
+                                    <div class="mailchimp-submitting"></div><!-- mailchimp-submitting end -->
+
+                                    <div class="mailchimp-success"></div><!-- mailchimp-success end -->
+
+                                    <div class="mailchimp-error"></div><!-- mailchimp-error end -->
+
+                                </div>
+
+                                <!-- mailchimp-alerts end -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- footer main area end -->
+
+
+
+<!-- footer bottom area start -->
+
+<div class="footer-bootom bg-gray pt-20 pb-20">
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-md-6">
+
+                <div class="copyright-text text-center text-md-left">
+
+                    <p>© 2021 <b>Woud's Farm</b></p>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-6">
+
+                <!-- <div class="payment-method text-md-right text-center">
+
+                    <img src="assets/img/payment.png" alt="">
+
+                </div> -->
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- footer bottom area end -->
+
+
+
+</footer>
+
+<!--== End Footer Area Wrapper ==-->
+
+
+
+<!-- Scroll to top start -->
+
+<div class="scroll-top not-visible">
+
+<i class="fa fa-angle-up"></i>
+
+</div>
+
+<!-- Scroll to Top End -->
+
+
+
+<!--=======================Javascript============================-->
+
+<!--=== All Vendor Js ===-->
+
+<script src="assets/js/vendor.js"></script>
+
+<!--=== All Plugins Js ===-->
+
+<script src="assets/js/plugins.js"></script>
+
+<!--=== Active Js ===-->
+
+<script src="assets/js/active.js"></script>
+
+</body>
+
+
+
+</html>
