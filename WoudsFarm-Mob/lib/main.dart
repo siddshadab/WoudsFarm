@@ -1,13 +1,14 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
-import 'package:wouds_farm/views/mobile/OrderPage.dart';
-import 'package:wouds_farm/views/mobile/RegisterPage.dart';
-import 'package:wouds_farm/views/mobile/otp_page.dart';
-import 'package:wouds_farm/views/tab_desktop/tab_screen.dart';
+import 'package:wouds_farm/views/mobile/home/OrderPage.dart';
+import 'package:wouds_farm/views/mobile/kyc_form/BusinessRegistration.dart';
+import 'package:wouds_farm/views/mobile/login_signup/otp_page.dart';
+import 'package:wouds_farm/views/mobile/login_signup/LoginRegistration.dart';
+
 
 import 'shared/app_theme.dart';
-import 'views/tab_desktop/desktop_screen.dart';
-import 'views/mobile/mobile_screen.dart';
+
+import 'views/mobile/login_signup/mobile_screen.dart';
 import 'widgets/responsive.dart';
 
 void main() {
@@ -23,12 +24,11 @@ class MyApp extends StatelessWidget {
       theme: appPrimaryTheme(),
       home: Responsive(
         mobile: MobileScreen(),
-        tablet: TabScreen(),
-        desktop: DesktopScreen(),
       ),
       routes: <String, WidgetBuilder>{
         '/otpScreen': (BuildContext ctx) => OtpScreen(),
-        '/registration':(BuildContext ctx) => Register(),
+        '/businessRegistration':(BuildContext ctx) => BusinessRegistration(),
+        '/loginRegistration':(BuildContext ctx) => LoginRegistration(),
         '/home':(BuildContext ctx) => OrderPage(),
       },
     );

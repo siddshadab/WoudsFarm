@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
-import 'package:wouds_farm/views/mobile/otp_page.dart';
+import 'package:wouds_farm/views/mobile/login_signup/otp_page.dart';
 
 
 

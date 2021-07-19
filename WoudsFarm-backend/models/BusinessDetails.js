@@ -6,7 +6,7 @@ const moment = require('moment');
 
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema({
+const BusinessDetailsSchema = new Schema({
     firstName: {
         type: String,
         default: ''

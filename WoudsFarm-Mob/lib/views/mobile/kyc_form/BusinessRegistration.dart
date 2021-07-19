@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:wouds_farm/views/mobile/TextInputDecoration.dart';
+import 'package:wouds_farm/widgets/TextInputDecoration.dart';
 
-class Register extends StatefulWidget {
-  const Register({Key? key}) : super(key: key);
+class BusinessRegistration extends StatefulWidget {
+  const BusinessRegistration({Key? key}) : super(key: key);
 
   @override
-  _RegisterState createState() => _RegisterState();
+  _BusinessRegistration createState() => _BusinessRegistration();
 }
 
-class _RegisterState extends State<Register> {
+class _BusinessRegistration extends State<BusinessRegistration> {
   @override
   Widget build(BuildContext context) {
     String _dropDownValue = "";

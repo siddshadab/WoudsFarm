@@ -188,7 +188,7 @@ class _OtpScreenState extends State<OtpScreen> {
       // final AuthResult user = await _auth.signInWithCredential(credential);
       // final FirebaseUser currentUser = await _auth.currentUser();
       // assert(user.user.uid == currentUser.uid);
-      Navigator.pushReplacementNamed(context, '/registration');
+      Navigator.pushReplacementNamed(context, '/loginRegistration');
     } catch (e) {
       handleError(e as PlatformException);
     }

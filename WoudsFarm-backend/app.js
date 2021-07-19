@@ -29,7 +29,7 @@ let url = "";
 //Check env variable
 if(process.env.ENV === "dev"){
     console.log("Development :",process.env.ENV);
-    url = `mongodb+srv://${config.DB.username}:${config.DB.pswd}@${config.DB.mongoDBHost}/shop-supplier`;
+    url = `mongodb+srv://${config.DB.username}:${config.DB.pswd}@${config.DB.mongoDBHost}/woudsfarm`;
 
     mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true,useCreateIndex:true}).then(async (db) => {
         console.log('Connected to MongoDB server',url);
@@ -40,7 +40,7 @@ if(process.env.ENV === "dev"){
     
 }else if(process.env.ENV === "prod"){
     console.log("Production :",process.env.ENV);
-    url = `mongodb://${config.DB.username}:${config.DB.pswd}@${config.DB.mongoDBHost}/shop-supplier?ssl=true&replicaSet=rs0&readPreference=secondaryPreferred`;
+    url = `mongodb://${config.DB.username}:${config.DB.pswd}@${config.DB.mongoDBHost}/woudsfarm?ssl=true&replicaSet=rs0&readPreference=secondaryPreferred`;
 
     var ca = [fs.readFileSync("rds-combined-ca-bundle.pem")];
 
@@ -52,7 +52,7 @@ if(process.env.ENV === "dev"){
         });
 }else{
     console.log("localhost");
-    url = `mongodb://localhost:27017/shop-supplier`;    
+    url = `mongodb://localhost:27017/woudsfarm`;    
     mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true,useCreateIndex:true}).then(async (db) => {
         console.log('Connected to MongoDB server',url);
     })
@@ -79,7 +79,6 @@ app.use(methodOverride('_method'));
 app.use('/api/v1/signin', signIn);
 app.use('/api/v1/signup', signUp);
 app.use('/api/v1/logout', logOut);
-
 app.use('/api/v1/adpost',adPost);
 
 
