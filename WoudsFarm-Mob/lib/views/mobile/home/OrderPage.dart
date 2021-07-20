@@ -156,8 +156,8 @@ class _NewOrderState extends State<NewOrder> {
     if (sharedPreferences.getStringList('cart') == null) {
       sharedPreferences.setStringList('cart', [json.encode(items)]);
     } else {
-      List<String>? cart = sharedPreferences.getStringList('cart');
-      cart!.add(json.encode(items));
+      List<String> cart = sharedPreferences.getStringList('cart');
+      cart.add(json.encode(items));
       sharedPreferences.setStringList('cart', cart);
       print(cart);
       print("Homepage khatam");
@@ -577,8 +577,8 @@ class _OrderStatusState extends State<OrderStatus> {
     if (sharedPreferences.getStringList('cart') == null) {
       sharedPreferences.setStringList('cart', [json.encode(items)]);
     } else {
-      List<String>? cart = sharedPreferences.getStringList('cart');
-      cart!.remove(json.encode(items));
+      List<String> cart = sharedPreferences.getStringList('cart');
+      cart.remove(json.encode(items));
       sharedPreferences.setStringList('cart', cart);
       print(cart);
       print("Homepage khatam");
@@ -590,11 +590,11 @@ class _OrderStatusState extends State<OrderStatus> {
 
   Future getaCart() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
-    List<String>? cart = sharedPreferences.getStringList('cart');
+    List<String> cart = sharedPreferences.getStringList('cart');
     print(cart);
     print("CART CHECK KARLE");
     List cartitems = [];
-    for (var item in cart!) {
+    for (var item in cart) {
       print(item.runtimeType);
       print(item);
       cartitems.add(json.decode(item));
@@ -621,10 +621,10 @@ class _OrderStatusState extends State<OrderStatus> {
     Future getCart() async {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
-      List<String>? cart = sharedPreferences.getStringList('cart');
+      List<String> cart = sharedPreferences.getStringList('cart');
 
       cartitems = [];
-      for (var item in cart!) {
+      for (var item in cart) {
         print(item.runtimeType);
         print(item);
         cartitems.add(json.decode(item));

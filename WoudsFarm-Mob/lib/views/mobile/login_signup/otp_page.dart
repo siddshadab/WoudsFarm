@@ -22,7 +22,7 @@ class _OtpScreenState extends State<OtpScreen> {
   String verificationId='';
   String errorMessage = '';
   //final FirebaseAuth _auth = FirebaseAuth.instance;
-  late Timer _timer;
+   Timer _timer;
 
   //this is method is used to initialize data
   @override
@@ -30,7 +30,7 @@ class _OtpScreenState extends State<OtpScreen> {
     super.didChangeDependencies();
     // Load data only once after screen load
     if (widget._isInit) {
-      widget._contact = '${ModalRoute.of(context)!.settings.arguments as String}';
+      widget._contact = '${ModalRoute.of(context).settings.arguments as String}';
      // generateOtp(widget._contact);
       widget._isInit = false;
     }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:wouds_farm/widgets/TextInputDecoration.dart';
 
 class BusinessRegistration extends StatefulWidget {
-  const BusinessRegistration({Key? key}) : super(key: key);
+  const BusinessRegistration({Key key}) : super(key: key);
 
   @override
   _BusinessRegistration createState() => _BusinessRegistration();
@@ -152,7 +152,7 @@ class _BusinessRegistration extends State<BusinessRegistration> {
                 TextFormField(
                     decoration: textInputDecoration.copyWith(
                         hintText: 'Name As Per PAN '),
-                    validator: (val) => val!.isEmpty ? 'Enter an Name ' : null,
+                    validator: (val) => val.isEmpty ? 'Enter an Name ' : null,
                     onChanged: (val) {
                       setState(() => phone = val);
                     }),

@@ -1,29 +1,34 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wouds_farm/models/SignUpModel.dart';
+import 'package:wouds_farm/shared/Constant.dart';
+import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:wouds_farm/widgets/TextInputDecoration.dart';
 
 
 class LoginRegistration extends StatefulWidget {
-  const LoginRegistration({Key? key}) : super(key: key);
+  const LoginRegistration({Key key}) : super(key: key);
 
   @override
   _LoginRegistration createState() => _LoginRegistration();
 }
 
 class _LoginRegistration extends State<LoginRegistration> {
+
+  final _formKey = GlobalKey<FormState>();
+  SignUpModel model = SignUpModel();
+  String tempPassword;
+
+  @override
+  void initState() {
+    super.initState();
+
+  }
+
+
   @override
   Widget build(BuildContext context) {
-
-    final _formKey = GlobalKey<FormState>();
-    String fname = '';
-    String lname = '';
-    String email = '';
-    String mobileno = '';
-    String groupcd = '';
-    String password = '';
-    String tempPassword = '';
-
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 244, 237, 232),
 
@@ -40,47 +45,83 @@ class _LoginRegistration extends State<LoginRegistration> {
                 padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25),
                 child: Form(
                   key: _formKey,
-                  autovalidateMode: AutovalidateMode.onUserInteraction,
+                  autovalidateMode: AutovalidateMode.always,
                   child: Column(
                     children: <Widget>[
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            hintText: 'First Name'),
+                            hintText: 'Enter First Name',labelText: 'First Name'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val!.isEmpty ? 'First Name is required' : null,
-                        onSaved: (val) => fname = val as String,
+                        validator: (val) => val.isEmpty ? 'First Name is required' : null,
+                          onSaved: (val) {
+                            model.fname = val;
+                          },
+                    onChanged: (val){
+            _formKey.currentState.save();
+            }
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            hintText: 'Last Name'),
+                            hintText: 'Enter Last Name',labelText: 'Last Name'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val!.isEmpty ? 'Last Name is required' : null,
-                        onSaved: (val) => lname = val as String,
+                        validator: (val) => val.isEmpty ? 'Last Name is required' : null,
+                          onSaved: (val) async{
+                            model.lname = val;
+                          },
+                          onChanged: (val){
+                            _formKey.currentState.save();
+                          }
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            hintText: 'Email'),
+                            hintText: 'Enter Email',labelText: 'Email'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val!.isEmpty ? 'Email is required' : null,
-                        onSaved: (val) => email = val as String,
+                        validator: (val) => val.isEmpty ? 'Email is required' : null,
+                          onSaved: (val) {
+                            model.email = val;
+                          },
+                          onChanged: (val){
+                            _formKey.currentState.save();
+                          }
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            hintText: 'Password'),
+                            hintText: 'Enter Password',labelText: 'Password'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val!.isEmpty ? 'Password is required' : null,
-                        onSaved: (val) => password = val as String,
+                        validator: (val) => val.isEmpty ? 'Password is required' : null,
+                       onSaved: (val) {
+            model.password = val;
+            },
+                          onChanged: (val){
+                            _formKey.currentState.save();
+                          }
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            hintText: 'Match Password'),
+                            hintText: 'Enter Match Password',labelText: 'Match Password'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val!.isEmpty ? 'Match Pasword is required' : val !=tempPassword?"Passwords Are not matching":null,
-                        onSaved: (val) => tempPassword = val as String,
+                        validator: (val) {
+                          print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                          print(model);
+                          print(model.toString());
+                          print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXENDS");
+                          if(val.isEmpty){
+                            return 'Match Pasword is required';
+                          }else if(val !=model.password){
+                            return 'Passwords Are not matching';
+                          }
+                          return null;
+                        },
+                        onSaved: (val) {
+                          tempPassword = val;
+                        },
+                          onChanged: (val){
+                            _formKey.currentState.save();
+                          }
                       ),
                       SizedBox(height: 20.0),
                       DropdownButton(
@@ -109,7 +150,7 @@ class _LoginRegistration extends State<LoginRegistration> {
                         onChanged: (val) {
                           setState(
                                 () {
-                              groupcd = val.toString();
+                                  model.groupcd = val.toString();
                             },
                           );
                         },
@@ -119,10 +160,16 @@ class _LoginRegistration extends State<LoginRegistration> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(primary: Colors.brown),
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                            Navigator.pushReplacementNamed(context, '/businessRegistration');
+                        onPressed: () async{
+                          print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                          print(model);
+                          print(model.toString());
+                          print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXENDS");
+
+                          if (_formKey.currentState.validate()) {
+                            _formKey.currentState.save();
+                            await submitData();
+
                           }
                         },
                         child: Text("Proceed"),
@@ -133,6 +180,29 @@ class _LoginRegistration extends State<LoginRegistration> {
 
           ]),
         ));
+  }
+
+  submitData() async{
+    print("XXXXXXXXXXXX");
+    print(model);
+    try {
+      String json = await _toJson();
+      String bodyValue  = await NetworkUtil.callPostService(json,Constant.BASE_URL.toString()+'signup/',Constant.headers);
+      if(bodyValue.contains('errorResponse')){
+
+      }else{
+        Navigator.pushReplacementNamed(context, '/businessRegistration');
+      }
+      print(bodyValue);
+    } catch(_){}
+
+  }
+
+  Future<String> _toJson() async{
+    var mapData =  model.toJson();
+    String json = Constant.JSON.encode(mapData);
+    return json;
+
   }
 }
 

@@ -6,14 +6,14 @@ var geoip = require('geoip-country');
 
 exports.postSignUp = async function(req,res){
 
-    var ip = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || 
+         var ip = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || 
          req.socket.remoteAddress
 
          var ip = ip;
-var geo = geoip.lookup(ip);
+                         var geo = geoip.lookup(ip);
 
 
-console.log(geo.range[0]+"XXXX"+geo.range[1]);
+//console.log(geo.range[0]+"XXXX"+geo.range[1]);
 
     const { body } = req;
     console.log('body', body);
@@ -99,8 +99,11 @@ console.log(geo.range[0]+"XXXX"+geo.range[1]);
               newUser.metadata.mlastupdateby = fname+" "+ lname ;
               newUser.metadata.mcreateddt =  moment().valueOf();
               newUser.metadata.mlastupdatedt = moment().valueOf() ;
+              try{
+                  
               newUser.metadata.mgeolatd = geo.range[0];
               newUser.metadata.mgeologd = geo.range[1];
+              }catch(_){}
 
             //  newUser.lastName = lname;
             //  newUser.lastName = lname;

@@ -1,7 +1,7 @@
 class ItemModel {
-  late String name;
-  late int price;
-  late Uri image;
+   String name;
+   int price;
+   Uri image;
 
   ItemModel(String name, int price, Uri image) {
     this.name = name;
