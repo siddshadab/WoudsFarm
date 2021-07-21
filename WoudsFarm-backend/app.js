@@ -22,6 +22,7 @@ require('dotenv').config();
 var errorHandler = require("./utils/errorHandler.js");
 var config = require("./config");
 var logger = require("./utils/logger.js");
+const liveToLive = require('./routes/LiveToLive');
 
 let url = "";
 
@@ -80,6 +81,7 @@ app.use('/api/v1/signin', signIn);
 app.use('/api/v1/signup', signUp);
 app.use('/api/v1/logout', logOut);
 app.use('/api/v1/adpost',adPost);
+app.use('/api/v1/liveToLive',liveToLive);
 
 
 

@@ -3,6 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wouds_farm/models/item.dart';
+import 'package:wouds_farm/widgets/TextInputDecoration.dart';
+
 // import 'package:lokalgrub/utilities/colors.dart';
 // import 'package:lokalgrub/widgets/common_widgets.dart';
 
@@ -13,6 +15,7 @@ class OrderPage extends StatefulWidget {
 
 class _OrderPageState extends State<OrderPage> {
   bool isOrder = true;
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -26,7 +29,7 @@ class _OrderPageState extends State<OrderPage> {
                 onTap: () {},
                 child: ListTile(
                   leading: CircleAvatar(
-                    backgroundColor:  const Color.fromARGB(255, 244, 237, 232),
+                    backgroundColor: const Color.fromARGB(255, 244, 237, 232),
                     child: Icon(
                       Icons.person,
                       color: Colors.white,
@@ -41,7 +44,7 @@ class _OrderPageState extends State<OrderPage> {
                 width: size.width * 0.83,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
-                    color:  const Color.fromARGB(255, 244, 237, 232)),
+                    color: const Color.fromARGB(255, 244, 237, 232)),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
@@ -58,7 +61,9 @@ class _OrderPageState extends State<OrderPage> {
                           width: size.width * 0.4,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: isOrder ? Colors.white :  const Color.fromARGB(255, 244, 237, 232),
+                            color: isOrder
+                                ? Colors.white
+                                : const Color.fromARGB(255, 244, 237, 232),
                           ),
                           child: Center(
                             child: Text(
@@ -85,7 +90,9 @@ class _OrderPageState extends State<OrderPage> {
                           width: size.width * 0.4,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(10.0),
-                            color: isOrder ?  const Color.fromARGB(255, 244, 237, 232) : Colors.white,
+                            color: isOrder
+                                ? const Color.fromARGB(255, 244, 237, 232)
+                                : Colors.white,
                           ),
                           child: Center(
                             child: Text(
@@ -201,11 +208,16 @@ class _NewOrderState extends State<NewOrder> {
         Uri.parse(
             "https://thumbs.dreamstime.com/z/fresh-raw-chicken-legs-19961106.jpg")),
   ];
+
+  String type;
+  int optionId;
+
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor:  const Color.fromARGB(255, 244, 237, 232),
+      backgroundColor: const Color.fromARGB(255, 244, 237, 232),
       //backgroundColor: Colors.yellow,
       body: SingleChildScrollView(
         child: Column(
@@ -215,7 +227,7 @@ class _NewOrderState extends State<NewOrder> {
               padding:
                   const EdgeInsets.symmetric(horizontal: 8.0, vertical: 2.0),
               child: Container(
-                color:  const Color.fromARGB(255, 244, 237, 232),
+                color: const Color.fromARGB(255, 244, 237, 232),
                 child: Row(
                   children: [
                     Icon(Icons.location_on),
@@ -235,19 +247,25 @@ class _NewOrderState extends State<NewOrder> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                        child: Column(
-                          children: [
-                            Image.network(
-                              "https://img.pngio.com/clipartistnet-clip-art-chicken-svg-png-black-and-white-chicken-999_1034.png",
-                              height: 50,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            Text("Live Chicken")
-                          ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pushReplacementNamed(context, '/placeLiveChickenOrder');
+
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Column(
+                            children: [
+                              Image.network(
+                                "https://img.pngio.com/clipartistnet-clip-art-chicken-svg-png-black-and-white-chicken-999_1034.png",
+                                height: 50,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text("Live Chicken")
+                            ],
+                          ),
                         ),
                       ),
                       Padding(
@@ -353,7 +371,7 @@ class _NewOrderState extends State<NewOrder> {
                             topRight: Radius.circular(8.0),
                             bottomRight: Radius.circular(8.0),
                           ),
-                          color:  const Color.fromARGB(255, 244, 237, 232),
+                          color: const Color.fromARGB(255, 244, 237, 232),
                         ),
                         padding: EdgeInsets.only(left: 10.0),
                         child: Text("Payment Options")),
@@ -529,7 +547,8 @@ class _NewOrderState extends State<NewOrder> {
                           ),
                           trailing: ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary:  const Color.fromARGB(255, 244, 237, 232),
+                                primary:
+                                    const Color.fromARGB(255, 244, 237, 232),
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 15, vertical: 10),
                               ),
@@ -555,6 +574,91 @@ class _NewOrderState extends State<NewOrder> {
       ),
     );
   }
+  void showModalSheet(BuildContext context) {
+    final items = [
+      {
+        "displayName": "Enter value",
+        "type": "string",
+        "data": [
+          {"id": 1, "displayId": "MO"},
+          {"id": 2, "displayId": "AO"},
+          {"id": 3, "displayId": "OffNet"}
+        ]
+      },
+      {
+        "displayName": "Source",
+        "type": "list",
+        "data": [
+          {"id": 1, "displayId": "MO"},
+          {"id": 2, "displayId": "AO"},
+          {"id": 3, "displayId": "OffNet"}
+        ]
+      }
+    ];
+
+    showModalBottomSheet<void>(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10.0),
+        ),
+        isScrollControlled: true,
+        context: context,
+        builder: (BuildContext context) {
+          return StatefulBuilder(
+              builder: (BuildContext context, StateSetter state) {
+                return  LimitedBox(
+
+                        child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: DropdownButton(
+                                  dropdownColor: Colors.white,
+                                  hint: Text('Pan ', style: TextStyle(color: Colors.black)),
+                                  isExpanded: true,
+                                  iconSize: 30.0,
+                                  style: TextStyle(color: Colors.blue),
+                                  items: [
+                                    'Pan',
+                                    'Adhar',
+                                  ].map(
+                                        (val) {
+                                      return DropdownMenuItem<String>(
+                                        value: val,
+                                        child: Text(
+                                          val,
+                                          style: TextStyle(color: Colors.black),
+                                        ),
+                                      );
+                                    },
+                                  ).toList(),
+                                  onChanged: (val) {
+                                    setState(
+                                          () {
+                                        //_dropDownValue2 = val.toString();
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+                              TextFormField(
+                                  decoration: textInputDecoration.copyWith(
+                                      hintText: 'Name As Per PAN '),
+                                  validator: (val) => val.isEmpty ? 'Enter an Name ' : null,
+                                  onChanged: (val) {
+                                    //setState(() => phone = val);
+                                  }),
+                            ]
+                        )
+
+                );
+              });
+        });
+  }
+
+
+
 }
 
 class OrderStatus extends StatefulWidget {
@@ -611,6 +715,8 @@ class _OrderStatusState extends State<OrderStatus> {
 
     return cartitems;
   }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -680,7 +786,10 @@ class _OrderStatusState extends State<OrderStatus> {
                               padding: const EdgeInsets.all(8.0),
                               child: Text(
                                 "Cart is Empty",
-                                style: TextStyle(color:  const Color.fromARGB(255, 244, 237, 232),),
+                                style: TextStyle(
+                                  color:
+                                      const Color.fromARGB(255, 244, 237, 232),
+                                ),
                               ),
                             ),
                           );
@@ -702,8 +811,6 @@ class _OrderStatusState extends State<OrderStatus> {
           ),
         ),
       ),
-
-
     );
   }
 }
