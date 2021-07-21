@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:wouds_farm/views/mobile/home/OrderPage.dart';
 import 'package:wouds_farm/views/mobile/kyc_form/BusinessRegistration.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/trader/OrderList.dart';
 import 'package:wouds_farm/views/mobile/live_to_live/trader/place_order.dart';
 import 'package:wouds_farm/views/mobile/login_signup/otp_page.dart';
 import 'package:wouds_farm/views/mobile/login_signup/LoginRegistration.dart';
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/loginRegistration':(BuildContext ctx) => LoginRegistration(),
         '/home':(BuildContext ctx) => OrderPage(),
         '/placeLiveChickenOrder':(BuildContext ctx) => PlaceLiveChickenOrder(),
+        '/liveChickenOrderListTrader':(BuildContext ctx) => OrderListView(),
       },
     );
   }

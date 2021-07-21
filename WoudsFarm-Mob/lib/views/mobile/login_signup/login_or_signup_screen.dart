@@ -27,7 +27,8 @@ class _LoginScreenState extends State<LoginScreen> {
       showErrorDialog(context, 'Contact number can\'t be empty.');
     } else {
       final responseMessage =
-      await Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
+      //await Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
+      Navigator.pushReplacementNamed(context, '/home');
       if (responseMessage != null) {
         showErrorDialog(context, responseMessage as String);
       }

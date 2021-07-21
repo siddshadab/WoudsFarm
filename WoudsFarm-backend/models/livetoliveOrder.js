@@ -47,7 +47,6 @@ const LiveToLive = new Schema({
         type: String,
         default: ''
     },
-    metadata:metadata.metaData
 });
 
 const finalLiveToLiveSchema = new Schema({

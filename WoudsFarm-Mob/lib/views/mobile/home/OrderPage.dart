@@ -105,34 +105,7 @@ class _OrderPageState extends State<OrderPage> {
                           ),
                         ),
                       ),
-                    ),
-                    // GestureDetector(
-                    //   onTap: () {
-                    //     setState(() {
-                    //       isOrder = false;
-                    //     });
-                    //   },
-                    //   child: Padding(
-                    //     padding: const EdgeInsets.all(0.8),
-                    //     child: Container(
-                    //       height: 20,
-                    //       width: size.width * 0.4,
-                    //       decoration: BoxDecoration(
-                    //         borderRadius: BorderRadius.circular(10.0),
-                    //         color: isOrder ? Color(0xFfe8d6c8) : Colors.white,
-                    //       ),
-                    //       child: Center(
-                    //         child: Text(
-                    //           "Order Status",
-                    //           style: TextStyle(
-                    //             fontSize: 15.0,
-                    //             color: Colors.black,
-                    //           ),
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
+                    )
                   ],
                 ),
               ),
@@ -157,6 +130,14 @@ class NewOrder extends StatefulWidget {
 }
 
 class _NewOrderState extends State<NewOrder> {
+  final _scaffoldKey = new GlobalKey<ScaffoldState>();
+  VoidCallback _showPersistantBottomSheetCallBack;
+
+  @override
+  void initState() {
+    super.initState();
+    _showPersistantBottomSheetCallBack = _displayModalBottomSheet;
+  }
   void addItemToCart(Map items) async {
     print("here");
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
@@ -218,7 +199,7 @@ class _NewOrderState extends State<NewOrder> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 237, 232),
-      //backgroundColor: Colors.yellow,
+      key: _scaffoldKey,
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -248,10 +229,7 @@ class _NewOrderState extends State<NewOrder> {
                   child: Row(
                     children: [
                       GestureDetector(
-                        onTap: () {
-                          Navigator.pushReplacementNamed(context, '/placeLiveChickenOrder');
-
-                        },
+                        onTap: _showPersistantBottomSheetCallBack,
                         child: Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 10.0),
                           child: Column(
@@ -348,13 +326,7 @@ class _NewOrderState extends State<NewOrder> {
                 ),
               ),
             ),
-            // Padding(
-            //   padding: const EdgeInsets.all(8.0),
-            //   child: Container(
-            //       height: MediaQuery.of(context).size.height * 0.12,
-            //       width: MediaQuery.of(context).size.width,
-            //       child: Text("Thanksgiving Chicken Image")),
-            // ),
+
             Container(
               width: size.width,
               color: Colors.white,
@@ -455,6 +427,7 @@ class _NewOrderState extends State<NewOrder> {
                 ],
               ),
             ),
+
             SizedBox(
               height: 15,
             ),
@@ -473,59 +446,7 @@ class _NewOrderState extends State<NewOrder> {
             SizedBox(
               height: 8,
             ),
-            // Container(
-            //   height: 35,
-            //   width: MediaQuery.of(context).size.width,
-            //   decoration: BoxDecoration(color: Colors.transparent),
-            //   child: Center(
-            //     child: Text(
-            //       "FRESH DEALS EVERYDAY - GRAB YOURS NOW!",
-            //       style: TextStyle(
-            //         fontSize: 16,
-            //         color: Colors.black,
-            //         fontWeight: FontWeight.bold,
-            //       ),
-            //     ),
-            //   ),
-            // ),
-            // SizedBox(
-            //   height: 8,
-            // ),
-            // Container(
-            //   color: Colors.white,
-            //   height: MediaQuery.of(context).size.height * 0.2,
-            //   child: Row(
-            //     children: [
-            //       Padding(
-            //         padding: const EdgeInsets.all(10.0),
-            //         child: Container(
-            //           child: Image.network(
-            //               "https://freshtocart.s3.ap-south-1.amazonaws.com/Merchant1/Large/A6A8E.jpg"),
-            //         ),
-            //       ),
-            //       // Column(
-            //       //   children: [
-            //       //     Padding(
-            //       //       padding: const EdgeInsets.only(top: 18.0),
-            //       //       child: Image.network(
-            //       //           "https://firebasestorage.googleapis.com/v0/b/food-3e371.appspot.com/o/Screenshot%202021-07-05%20124701.jpg?alt=media&token=37ea8095-dd40-413f-8763-b9da0fac517a"),
-            //       //     ),
-            //       //     Padding(
-            //       //       padding: const EdgeInsets.all(15.0),
-            //       //       child: Text(
-            //       //         "Curry Cut - Large pcs \n 5kg at Rs. 256 only/-",
-            //       //         style: TextStyle(
-            //       //           fontSize: 13,
-            //       //           color: Colors.black,
-            //       //           fontWeight: FontWeight.bold,
-            //       //         ),
-            //       //       ),
-            //       //     ),
-            //       //   ],
-            //       // )
-            //     ],
-            //   ),
-            // ),
+
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SingleChildScrollView(
@@ -574,87 +495,93 @@ class _NewOrderState extends State<NewOrder> {
       ),
     );
   }
-  void showModalSheet(BuildContext context) {
-    final items = [
-      {
-        "displayName": "Enter value",
-        "type": "string",
-        "data": [
-          {"id": 1, "displayId": "MO"},
-          {"id": 2, "displayId": "AO"},
-          {"id": 3, "displayId": "OffNet"}
-        ]
-      },
-      {
-        "displayName": "Source",
-        "type": "list",
-        "data": [
-          {"id": 1, "displayId": "MO"},
-          {"id": 2, "displayId": "AO"},
-          {"id": 3, "displayId": "OffNet"}
-        ]
-      }
-    ];
-
-    showModalBottomSheet<void>(
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10.0),
-        ),
-        isScrollControlled: true,
+  void _displayModalBottomSheet() {
+    Size size = MediaQuery.of(context).size;
+    showModalBottomSheet(
         context: context,
-        builder: (BuildContext context) {
-          return StatefulBuilder(
-              builder: (BuildContext context, StateSetter state) {
-                return  LimitedBox(
+        builder: (context) {
+          return new Container(
+            height: 200.0,
+            width: size.width,
+            color: const Color.fromARGB(255, 244, 237, 232),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 8.0),
+                  child: Container(
+                      width: MediaQuery
+                          .of(context)
+                          .size
+                          .width,
 
-                        child: Column(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: DropdownButton(
-                                  dropdownColor: Colors.white,
-                                  hint: Text('Pan ', style: TextStyle(color: Colors.black)),
-                                  isExpanded: true,
-                                  iconSize: 30.0,
-                                  style: TextStyle(color: Colors.blue),
-                                  items: [
-                                    'Pan',
-                                    'Adhar',
-                                  ].map(
-                                        (val) {
-                                      return DropdownMenuItem<String>(
-                                        value: val,
-                                        child: Text(
-                                          val,
-                                          style: TextStyle(color: Colors.black),
-                                        ),
-                                      );
-                                    },
-                                  ).toList(),
-                                  onChanged: (val) {
-                                    setState(
-                                          () {
-                                        //_dropDownValue2 = val.toString();
-                                      },
-                                    );
-                                  },
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: new Center(
+                        child: Text("Live To Live Chicken Menus Options"),)),
+                ),
+                SizedBox(height: 20.0,),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    physics: BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/liveChickenOrderListTrader');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Column(
+                              children: [
+                                Image.network(
+                                  "https://cdn2.iconfinder.com/data/icons/restaurant-outline-3/64/food-menu-order-restaurant-1024.png",
+                                  height: 50,
                                 ),
-                              ),
-                              TextFormField(
-                                  decoration: textInputDecoration.copyWith(
-                                      hintText: 'Name As Per PAN '),
-                                  validator: (val) => val.isEmpty ? 'Enter an Name ' : null,
-                                  onChanged: (val) {
-                                    //setState(() => phone = val);
-                                  }),
-                            ]
-                        )
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Order Details")
+                              ],
+                            ),
+                          ),
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushReplacementNamed(
+                                context, '/placeLiveChickenOrder');
+                          },
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                            child: Column(
+                              children: [
+                                Image.network(
+                                  "https://www.kindpng.com/picc/m/757-7574661_logo-logo-order-now-brown-png-transparent-png.png",
+                                  height: 50,
+                                ),
+                                SizedBox(
+                                  height: 10,
+                                ),
+                                Text("Order Now")
+                              ],
+                            ),
+                          ),
+                        ),
 
-                );
-              });
+                      ],
+                    ),
+                  ),
+                ),
+
+              ],
+            ),
+          );
         });
+
   }
 
 

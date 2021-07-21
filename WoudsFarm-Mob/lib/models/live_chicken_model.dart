@@ -11,6 +11,8 @@ class LiveChickenModel {
   String quoterMobileNo;
   String address;
 
+
+
   LiveChickenModel( {
     this.type,
     this.weight,
@@ -23,6 +25,11 @@ class LiveChickenModel {
     this.address,
     this.inQueue,
   });
+
+  @override
+  String toString() {
+    return 'LiveChickenModel{type: $type, weight: $weight, mobileNo: $mobileNo, farmerQuote: $farmerQuote, ourQuote: $ourQuote, inQueue: $inQueue, finalAmount: $finalAmount, isActive: $isActive, quoterMobileNo: $quoterMobileNo, address: $address}';
+  }
 
   LiveChickenModel.fromJson(Map<String, dynamic> json) {
     type = json['type'];
@@ -51,5 +58,37 @@ class LiveChickenModel {
     data['address'] = this.address;
     data['inQueue'] = this.inQueue;
     return data;
+  }
+
+
+}
+
+class LiveChickenModelFromServer {
+
+  String id;
+  String mobileNo;
+  List<LiveChickenModel> data;
+
+  LiveChickenModelFromServer( {
+    this.mobileNo,
+    this.id,
+    this.data,
+  });
+
+  @override
+  String toString() {
+    return 'LiveChickenModelFromServer{id: $id, mobileNo: $mobileNo, data: $data}';
+  }
+
+  LiveChickenModelFromServer.fromServerJson(Map<String, dynamic> json) {
+    id = json['_id'] != null ?json['_id'] : null;
+    mobileNo = json['mobileNo'];
+    if (json['data'] != null) {
+      data = new List<LiveChickenModel>();
+      json['data'].forEach((v) {
+        data.add(new LiveChickenModel.fromJson(v));
+      });
+    }
+
   }
 }

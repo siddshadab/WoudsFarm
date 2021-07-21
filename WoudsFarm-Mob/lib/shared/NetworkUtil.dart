@@ -60,7 +60,8 @@ class NetworkUtil {
       return response.body;
     } catch (e) {
       print('Server Exception!!!');
-      return "";
+      print(e);
+      return "errorResponse";
     }
   }
 

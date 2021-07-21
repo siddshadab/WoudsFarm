@@ -75,7 +75,6 @@ exports.getLiveToLive = async function(req,res){
             });
         });
     }else{
-
         res.send({
             message: "Error Calling service",
             messagecode: 3
