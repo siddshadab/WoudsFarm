@@ -7,7 +7,9 @@ import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:wouds_farm/widgets/TextInputDecoration.dart';
 
 class LoginRegistration extends StatefulWidget {
-  const LoginRegistration({Key key}) : super(key: key);
+  bool _isInit = true;
+  var contact = '';
+ // const LoginRegistration(this.contact);
 
   @override
   _LoginRegistration createState() => _LoginRegistration();
@@ -19,8 +21,23 @@ class _LoginRegistration extends State<LoginRegistration> {
   String tempPassword;
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    // Load data only once after screen load
+    if (widget._isInit) {
+      widget.contact =
+      '${ModalRoute.of(context).settings.arguments as String}';
+      // generateOtp(widget._contact);
+      widget._isInit = false;
+      print("Contact  "+widget.contact);
+
+    }
+  }
+
+  @override
   void initState() {
     super.initState();
+
   }
 
   @override
@@ -200,6 +217,7 @@ class _LoginRegistration extends State<LoginRegistration> {
   submitData() async {
     print("XXXXXXXXXXXX");
     print(model);
+    model.mobileno=widget.contact;
     try {
       String json = await _toJson();
       String bodyValue = await NetworkUtil.callPostService(

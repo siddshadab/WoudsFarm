@@ -20,6 +20,7 @@ exports.postSignUp = async function(req,res){
         fname,
         lname,
         password,
+        groupcd
     } = body;
 
     let {
@@ -59,6 +60,12 @@ exports.postSignUp = async function(req,res){
             message: "Error: password field can't be blank"
         });
     }
+    if(!groupcd){
+        res.send({
+            success: false,
+            message: "Error: Customer Type field can't be blank"
+        });
+    }
     
     email = email.toLowerCase();
 
@@ -90,6 +97,7 @@ exports.postSignUp = async function(req,res){
              newUser.mobileno = mobileno;
              newUser.firstName = fname;
              newUser.lastName = lname;
+             newUser.groupcd = groupcd;
 
               newUser.isloggedinyn = 'N';
               newUser.maxbadlginperday = 0;

@@ -27,8 +27,7 @@ exports.postSignIn = async function(req,res){
         email: req.body.email
     },(err, users)=>{
         // console.log(users);
-        dbUser=users
-        if(err){
+             if(err){
              res.send({
                 success: false,
                 message: 'Error: Server error'
@@ -63,16 +62,20 @@ exports.postSignIn = async function(req,res){
                 });
             }
             else if(doc){
+                User.find({
+                    email: req.body.email
+                },(err, users)=>{
                  res.send({
                     success: true,
                     message: 'Valid sign in',
                     token: doc._id,
                     userId: doc._id,
-                    userData: dbUser,
+                    userData: users,
                     /**Check this after words for proper if data exist 
                     for this user in database of business reg **/
                     isBusinessData: true
                 });
+            });
             }
         });
 

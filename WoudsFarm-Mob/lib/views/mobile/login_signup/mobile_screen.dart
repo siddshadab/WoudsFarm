@@ -29,16 +29,11 @@ class _MobileScreen extends State<MobileScreen> {
       user.groupcd = sharedPreferences.getString('groupcd');
     } catch (_) {}
 
-    if (user.groupcd == 'Farmer') {
+    if (user.groupcd == 'Farmer' || user.groupcd == 'Admin') {
       widget =
-          Navigator.pushReplacementNamed(context, '/liveChickenOrderListFarmer')
-              as Widget;
+          Navigator.pushReplacementNamed(context, '/businessHome') as Widget;
     } else if (user.groupcd == 'Trader') {
       widget = Navigator.pushReplacementNamed(context, '/home') as Widget;
-    } else if (user.groupcd == 'Admin') {
-      widget =
-          Navigator.pushReplacementNamed(context, '/liveChickenOrderListAdmin')
-              as Widget;
     } else if (user.groupcd == 'Restaurant') {
       widget = Navigator.pushReplacementNamed(context, '/home') as Widget;
     } else {

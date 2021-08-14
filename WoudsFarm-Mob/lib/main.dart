@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wouds_farm/models/UserModel.dart';
+import 'package:wouds_farm/views/mobile/home/BusinessHome.dart';
 import 'package:wouds_farm/views/mobile/home/OrderPage.dart';
 import 'package:wouds_farm/views/mobile/kyc_form/BusinessRegistration.dart';
 import 'package:wouds_farm/views/mobile/live_to_live/admin/AdminBulkDetailedAndQuotes.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         mobile: MobileScreen(),
       ),
       routes: <String, WidgetBuilder>{
+        '/businessHome':(BuildContext ctx) => BusinessHome(),
         '/otpScreen': (BuildContext ctx) => OtpScreen(),
         '/businessRegistration':(BuildContext ctx) => BusinessRegistration(),
         '/loginRegistration':(BuildContext ctx) => LoginRegistration(),

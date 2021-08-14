@@ -1,10 +1,12 @@
 class UserModel {
   String fname;
+  String firstName;
   String lname;
   String email;
   String password;
   String mobileno;
   String groupcd;
+  String lastName;
 
   UserModel(
       {this.fname,
@@ -12,7 +14,9 @@ class UserModel {
       this.email,
       this.password,
       this.mobileno,
-      this.groupcd});
+      this.groupcd,
+      this.firstName,
+      this.lastName});
 
   @override
   String toString() {
@@ -27,6 +31,8 @@ class UserModel {
       password: json['password'],
       mobileno: json['mobileno'],
       groupcd: json['groupcd'],
+      firstName: json['firstName'],
+      lastName: json['lastName'],
     );
   }
 

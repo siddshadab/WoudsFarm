@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wouds_farm/models/UserModel.dart';
 import 'package:wouds_farm/widgets/TextInputDecoration.dart';
 
 class BusinessRegistration extends StatefulWidget {
@@ -163,7 +165,7 @@ class _BusinessRegistration extends State<BusinessRegistration> {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(primary: Colors.brown),
                         onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/home');
+                          route();
 
                         },
                         child: Text("Skip"),
@@ -173,8 +175,9 @@ class _BusinessRegistration extends State<BusinessRegistration> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(primary: Colors.brown),
-                        onPressed: () {
-                          Navigator.pushReplacementNamed(context, '/home');
+                        onPressed: () async{
+                          //Add submit business later
+                          route();
                         },
                         child: Text("Proceed"),
                       )
@@ -185,5 +188,28 @@ class _BusinessRegistration extends State<BusinessRegistration> {
             )
           ]),
         ));
+  }
+
+  route() async{
+    UserModel user = new UserModel();
+    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    try {
+      user.fname = sharedPreferences.getString('fname');
+      user.lname = sharedPreferences.get('lname');
+      user.email = sharedPreferences.getString('email');
+      user.mobileno = sharedPreferences.getString('mobileno');
+      user.groupcd = sharedPreferences.getString('groupcd');
+    } catch (_) {}
+
+    if (user.groupcd == 'Farmer' || user.groupcd == 'Admin') {
+      Navigator.pushReplacementNamed(context, '/businessHome');
+    } else if (user.groupcd == 'Trader') {
+      Navigator.pushReplacementNamed(context, '/home');
+    }  else if (user.groupcd == 'Restaurant') {
+      Navigator.pushReplacementNamed(context, '/home');
+    } else {
+      Navigator.pushReplacementNamed(context, '/mobileInputScreen');
+    }
+
   }
 }

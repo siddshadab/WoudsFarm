@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wouds_farm/models/item.dart';
@@ -15,6 +16,65 @@ class OrderPage extends StatefulWidget {
 
 class _OrderPageState extends State<OrderPage> {
   bool isOrder = true;
+  SharedPreferences prefs;
+  String groupcd;
+  String fname;
+  String lname;
+  String email;
+  String mobileno;
+
+  @override
+  void initState() {
+    super.initState();
+    getsharedPreferences();
+  }
+
+  getsharedPreferences() async {
+    prefs = await SharedPreferences.getInstance();
+    setState(() {
+
+      try {
+        fname = prefs.getString('fname');
+        lname = prefs.get('lname');
+        email = prefs.getString('email');
+        mobileno = prefs.getString('mobileno');
+        groupcd = prefs.getString('groupcd');
+      } catch (_) {}
+
+
+    });
+  }
+
+  //Alert dialogue to show error and response
+  void showErrorDialog(BuildContext context, String message) {
+    // set up the AlertDialog
+    final CupertinoAlertDialog alert = CupertinoAlertDialog(
+      title: const Text('Message'),
+      content: Text('\n$message'),
+      actions: <Widget>[
+        CupertinoDialogAction(
+          isDefaultAction: true,
+          child: const Text('Yes'),
+          onPressed: () async{
+            SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+            sharedPreferences.setString('fname','');
+            sharedPreferences.setString('lname', '');
+            sharedPreferences.setString('email', '');
+            sharedPreferences.setString('mobileno', '');
+            sharedPreferences.setString('groupcd', '');
+            Navigator.pushReplacementNamed(context, '/mobileInputScreen');
+          },
+        )
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +88,14 @@ class _OrderPageState extends State<OrderPage> {
               InkWell(
                 onTap: () {},
                 child: ListTile(
+                  trailing:  FlatButton(
+                    textColor: Colors.white,
+                    onPressed: () {
+                      showErrorDialog(context, 'Are you sure you want to Logout');
+                    },
+                    child: Text("Logout",style: TextStyle(color: Colors.black),),
+                    shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+                  ),
                   leading: CircleAvatar(
                     backgroundColor: const Color.fromARGB(255, 244, 237, 232),
                     child: Icon(
@@ -35,8 +103,8 @@ class _OrderPageState extends State<OrderPage> {
                       color: Colors.white,
                     ),
                   ),
-                  title: Text("User"),
-                  subtitle: Text("Wouds Farm"),
+                  title: Text('${fname}'),
+                  subtitle: Text('User Type : ${groupcd}'),
                 ),
               ),
               Container(
@@ -740,4 +808,6 @@ class _OrderStatusState extends State<OrderStatus> {
       ),
     );
   }
+
+
 }

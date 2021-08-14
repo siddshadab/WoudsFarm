@@ -17,12 +17,12 @@ class OtpScreen extends StatefulWidget {
 }
 
 class _OtpScreenState extends State<OtpScreen> {
-  String phoneNo ='';
-  String smsOTP='';
-  String verificationId='';
+  String phoneNo = '';
+  String smsOTP = '';
+  String verificationId = '';
   String errorMessage = '';
   //final FirebaseAuth _auth = FirebaseAuth.instance;
-   Timer _timer;
+  Timer _timer;
 
   //this is method is used to initialize data
   @override
@@ -30,8 +30,9 @@ class _OtpScreenState extends State<OtpScreen> {
     super.didChangeDependencies();
     // Load data only once after screen load
     if (widget._isInit) {
-      widget._contact = '${ModalRoute.of(context).settings.arguments as String}';
-     // generateOtp(widget._contact);
+      widget._contact =
+          '${ModalRoute.of(context).settings.arguments as String}';
+      // generateOtp(widget._contact);
       widget._isInit = false;
     }
   }
@@ -62,14 +63,11 @@ class _OtpScreenState extends State<OtpScreen> {
                 SizedBox(
                   height: screenHeight * 0.05,
                 ),
-
                 Image.asset(
                   'assets/images/wouds_farm.jpg',
                   height: screenHeight * 0.3,
                   fit: BoxFit.contain,
                 ),
-
-
                 SizedBox(
                   height: screenHeight * 0.02,
                 ),
@@ -92,7 +90,8 @@ class _OtpScreenState extends State<OtpScreen> {
                   height: screenHeight * 0.04,
                 ),
                 Container(
-                  margin: EdgeInsets.symmetric(horizontal: screenWidth > 600 ? screenWidth * 0.2 : 16),
+                  margin: EdgeInsets.symmetric(
+                      horizontal: screenWidth > 600 ? screenWidth * 0.2 : 16),
                   padding: const EdgeInsets.all(2.0),
                   decoration: BoxDecoration(
                       color: const Color.fromARGB(255, 244, 237, 232),
@@ -114,7 +113,7 @@ class _OtpScreenState extends State<OtpScreen> {
                         child: PinEntryTextField(
                           fields: 6,
                           onSubmit: (text) {
-                                            smsOTP = text as String;
+                            smsOTP = text as String;
                           },
                         ),
                       ),
@@ -136,7 +135,8 @@ class _OtpScreenState extends State<OtpScreen> {
                           alignment: Alignment.center,
                           child: const Text(
                             'Verify',
-                            style: TextStyle(color: Colors.black, fontSize: 16.0),
+                            style:
+                                TextStyle(color: Colors.black, fontSize: 16.0),
                           ),
                         ),
                       ),
@@ -165,9 +165,9 @@ class _OtpScreenState extends State<OtpScreen> {
           codeSent: smsOTPSent,
           timeout: const Duration(seconds: 60),
           verificationCompleted: (AuthCredential phoneAuthCredential) {},
-          *//*verificationFailed: (AuthException exception) {
+          */ /*verificationFailed: (AuthException exception) {
             // Navigator.pop(context, exception.message);
-          }*//*);
+          }*/ /*);
     } catch (e) {
       handleError(e as PlatformException);
       // Navigator.pop(context, (e as PlatformException).message);
@@ -188,7 +188,9 @@ class _OtpScreenState extends State<OtpScreen> {
       // final AuthResult user = await _auth.signInWithCredential(credential);
       // final FirebaseUser currentUser = await _auth.currentUser();
       // assert(user.user.uid == currentUser.uid);
-      Navigator.pushReplacementNamed(context, '/loginRegistration');
+      print("Contact1  "+widget._contact);
+      await Navigator.pushNamed(context, '/loginRegistration', arguments: '${widget._contact}');
+      //Navigator.pushReplacementNamed(context, '/loginRegistration');
     } catch (e) {
       handleError(e as PlatformException);
     }
@@ -205,7 +207,7 @@ class _OtpScreenState extends State<OtpScreen> {
         showAlertDialog(context, 'Invalid Code');
         break;
       default:
-        showAlertDialog(context, error.message??"");
+        showAlertDialog(context, error.message ?? "");
         break;
     }
   }
@@ -234,5 +236,4 @@ class _OtpScreenState extends State<OtpScreen> {
       },
     );
   }
-
 }
