@@ -9,15 +9,15 @@ import 'package:wouds_farm/shared/Constant.dart';
 import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:intl/intl.dart';
 
-class OrderDetailedListView extends StatefulWidget {
+class TraderBulkDetailedList extends StatefulWidget {
   bool _isInit = true;
   LiveChickenModelFromServer data ;
 
   @override
-  _OrderDetailedListView createState() => _OrderDetailedListView();
+  _TraderBulkDetailedList createState() => _TraderBulkDetailedList();
 }
 
-class _OrderDetailedListView extends State<OrderDetailedListView> {
+class _TraderBulkDetailedList extends State<TraderBulkDetailedList> {
 
   //this is method is used to initialize data
   @override
@@ -36,7 +36,7 @@ class _OrderDetailedListView extends State<OrderDetailedListView> {
 
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 244, 237, 232),
-      appBar: AppBar(title: Text('Farmer Records Wise Checkout'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),),
+      appBar: AppBar(title: Text('Trader Records Wise Checkout'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),),
       body: FutureBuilder<LiveChickenModelFromServer>(
           builder: (context, snapshot) {
           return _LiveChickenListView(widget.data);

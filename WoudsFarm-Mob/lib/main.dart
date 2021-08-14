@@ -4,8 +4,12 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wouds_farm/models/UserModel.dart';
 import 'package:wouds_farm/views/mobile/home/OrderPage.dart';
 import 'package:wouds_farm/views/mobile/kyc_form/BusinessRegistration.dart';
-import 'package:wouds_farm/views/mobile/live_to_live/trader/OrderDetailedList.dart';
-import 'package:wouds_farm/views/mobile/live_to_live/trader/OrderList.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/admin/AdminBulkDetailedAndQuotes.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/admin/AdminBulkList.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/farmer/FarmerBulkDetailedAndQuotes.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/farmer/FarmerBulkList.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/trader/TraderBulkDetailedList.dart';
+import 'package:wouds_farm/views/mobile/live_to_live/trader/TraderBulkList.dart';
 import 'package:wouds_farm/views/mobile/live_to_live/trader/place_order.dart';
 import 'package:wouds_farm/views/mobile/login_signup/Login.dart';
 import 'package:wouds_farm/views/mobile/login_signup/MobileInputScreen.dart';
@@ -42,12 +46,12 @@ class MyApp extends StatelessWidget {
         '/login': (BuildContext ctx) => Login(),
         '/home':(BuildContext ctx) => OrderPage(),
         '/placeLiveChickenOrder':(BuildContext ctx) => PlaceLiveChickenOrder(),
-        '/liveChickenOrderListTrader':(BuildContext ctx) => OrderListView(),
-        '/liveChickenOrderDetailedListTrader':(BuildContext ctx) => OrderDetailedListView(),
-        '/liveChickenOrderListFarmer':(BuildContext ctx) => OrderListView(),
-        '/liveChickenOrderDetailedListFarmer':(BuildContext ctx) => OrderDetailedListView(),
-        '/liveChickenOrderListAdmin':(BuildContext ctx) => OrderListView(),
-        '/liveChickenOrderDetailedListAdmin':(BuildContext ctx) => OrderDetailedListView(),
+        '/liveChickenOrderListTrader':(BuildContext ctx) => TraderBulkList(),
+        '/liveChickenOrderDetailedListTrader':(BuildContext ctx) => TraderBulkDetailedList(),
+        '/liveChickenOrderListFarmer':(BuildContext ctx) => FarmerBulkList(),
+        '/liveChickenOrderDetailedListFarmer':(BuildContext ctx) => FarmerBulkDetailedList(),
+        '/liveChickenOrderListAdmin':(BuildContext ctx) => AdminBulkList(),
+        '/liveChickenOrderDetailedListAdmin':(BuildContext ctx) => AdminBulkDetailedList(),
         '/mobileInputScreen':(BuildContext ctx) => MobileInputScreen(),
       },
     );

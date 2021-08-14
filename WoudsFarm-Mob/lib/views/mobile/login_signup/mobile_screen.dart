@@ -31,7 +31,7 @@ class _MobileScreen extends State<MobileScreen> {
 
     if (user.groupcd == 'Farmer') {
       widget =
-          Navigator.pushReplacementNamed(context, '/mobileInputScreen')
+          Navigator.pushReplacementNamed(context, '/liveChickenOrderListFarmer')
               as Widget;
     } else if (user.groupcd == 'Trader') {
       Navigator.pushReplacementNamed(context, '/home');
@@ -40,7 +40,7 @@ class _MobileScreen extends State<MobileScreen> {
     } else if (user.groupcd == 'Restaurant') {
       Navigator.pushReplacementNamed(context, '/home');
     } else {
-      widget = Navigator.pushReplacementNamed(context, '/otpScreen') as Widget;
+      widget = Navigator.pushReplacementNamed(context, '/mobileInputScreen') as Widget;
     }
     setState(() {});
   }

@@ -13,49 +13,49 @@ import 'package:wouds_farm/shared/Constant.dart';
 import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:intl/intl.dart';
 
-class OrderListView extends StatefulWidget {
+class FarmerBulkList extends StatefulWidget {
   @override
-  _OrderListView createState() => _OrderListView();
+  _FarmerBulkList createState() => _FarmerBulkList();
 }
 
-class _OrderListView extends State<OrderListView> {
+class _FarmerBulkList extends State<FarmerBulkList> {
 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: const Color.fromARGB(255, 244, 237, 232),
-    body: FutureBuilder<List<LiveChickenModelFromServer>>(
-      future: _fetchJobs(),
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          List<LiveChickenModelFromServer> data = snapshot.data;
-          return  Scaffold(
-              backgroundColor: const Color.fromARGB(255, 244, 237, 232),
-              appBar: AppBar(title: Text('Live Chiken Order Details'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),),
-              body:_LiveChickenListView(data));
-        } else if (snapshot.hasError) {
-          return Center(child: Text("${snapshot.error}"),);
-        }
-        return new Center(child:new CircularProgressIndicator());
-      },
-    ),
+      backgroundColor: const Color.fromARGB(255, 244, 237, 232),
+      body: FutureBuilder<List<LiveChickenModelFromServer>>(
+        future: _fetchJobs(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            List<LiveChickenModelFromServer> data = snapshot.data;
+            return  Scaffold(
+                backgroundColor: const Color.fromARGB(255, 244, 237, 232),
+                appBar: AppBar(title: Text('Farmer Bulk List'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),),
+                body:_LiveChickenListView(data));
+          } else if (snapshot.hasError) {
+            return Center(child: Text("${snapshot.error}"),);
+          }
+          return new Center(child:new CircularProgressIndicator());
+        },
+      ),
     );
   }
 
   Future<List<LiveChickenModelFromServer>> _fetchJobs() async {
-      String bodyValue  = await NetworkUtil.callGetService(Constant.BASE_URL.toString()+'LiveToLive/?mobileNo=9987272169');
+    String bodyValue  = await NetworkUtil.callGetService(Constant.BASE_URL.toString()+'LiveToLive/?mobileNo=9987272169');
 
-      if(bodyValue.contains('errorResponse')){
-        throw Exception('Failed to load jobs from API');
-      }else{
+    if(bodyValue.contains('errorResponse')){
+      throw Exception('Failed to load jobs from API');
+    }else{
 
-        Map jsonResponse = json.decode(bodyValue);
+      Map jsonResponse = json.decode(bodyValue);
 
-        List<LiveChickenModelFromServer> ret = jsonResponse['data'].map<LiveChickenModelFromServer>((live) => new LiveChickenModelFromServer.fromServerJson(live)).toList();
+      List<LiveChickenModelFromServer> ret = jsonResponse['data'].map<LiveChickenModelFromServer>((live) => new LiveChickenModelFromServer.fromServerJson(live)).toList();
 
-        return ret;
-      }
+      return ret;
+    }
 
   }
 
