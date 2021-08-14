@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:wouds_farm/models/SignUpModel.dart';
+import 'package:wouds_farm/models/UserModel.dart';
 import 'package:wouds_farm/shared/Constant.dart';
 import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:wouds_farm/widgets/TextInputDecoration.dart';
@@ -17,7 +17,7 @@ class LoginRegistration extends StatefulWidget {
 class _LoginRegistration extends State<LoginRegistration> {
 
   final _formKey = GlobalKey<FormState>();
-  SignUpModel model = SignUpModel();
+  UserModel model = UserModel();
   String tempPassword;
 
   @override
@@ -71,10 +71,17 @@ class _LoginRegistration extends State<LoginRegistration> {
                           },
                           onChanged: (val){
                             _formKey.currentState.save();
-                          }
+                          },
+                       strutStyle: StrutStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 14,
+                          height: 1.7,
+                          leading: 1.7,
+                        ),
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
+                          obscureText: true,
                         decoration: textInputDecoration.copyWith(
                             hintText: 'Enter Email',labelText: 'Email'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
@@ -85,6 +92,7 @@ class _LoginRegistration extends State<LoginRegistration> {
                           onChanged: (val){
                             _formKey.currentState.save();
                           }
+
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
@@ -101,6 +109,7 @@ class _LoginRegistration extends State<LoginRegistration> {
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
+                          obscureText: true,
                         decoration: textInputDecoration.copyWith(
                             hintText: 'Enter Match Password',labelText: 'Match Password'),
                         inputFormatters: [new LengthLimitingTextInputFormatter(30)],
@@ -119,6 +128,7 @@ class _LoginRegistration extends State<LoginRegistration> {
                         onSaved: (val) {
                           tempPassword = val;
                         },
+
                           onChanged: (val){
                             _formKey.currentState.save();
                           }
@@ -191,7 +201,8 @@ class _LoginRegistration extends State<LoginRegistration> {
       if(bodyValue.contains('errorResponse')){
 
       }else{
-        Navigator.pushReplacementNamed(context, '/businessRegistration');
+        //Navigator.pushReplacementNamed(context, '/businessRegistration');
+        Navigator.pushReplacementNamed(context, '/login');
       }
       print(bodyValue);
     } catch(_){}

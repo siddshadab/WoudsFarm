@@ -20,12 +20,14 @@ exports.postSignIn = async function(req,res){
         });
     }
 
+    var dbUser = null;
     email = req.body.email.toLowerCase();
 
     User.find({
         email: req.body.email
     },(err, users)=>{
         // console.log(users);
+        dbUser=users
         if(err){
              res.send({
                 success: false,
@@ -65,7 +67,11 @@ exports.postSignIn = async function(req,res){
                     success: true,
                     message: 'Valid sign in',
                     token: doc._id,
-                    userId: doc._id
+                    userId: doc._id,
+                    userData: dbUser,
+                    /**Check this after words for proper if data exist 
+                    for this user in database of business reg **/
+                    isBusinessData: true
                 });
             }
         });

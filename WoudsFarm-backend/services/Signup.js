@@ -13,8 +13,6 @@ exports.postSignUp = async function(req,res){
                          var geo = geoip.lookup(ip);
 
 
-//console.log(geo.range[0]+"XXXX"+geo.range[1]);
-
     const { body } = req;
     console.log('body', body);
 

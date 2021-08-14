@@ -4,18 +4,20 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:wouds_farm/shared/Constant.dart';
+import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:wouds_farm/views/mobile/login_signup/otp_page.dart';
 
 
 
 
 
-class LoginScreen extends StatefulWidget {
+class MobileInputScreen extends StatefulWidget {
   @override
-  _LoginScreenState createState() => _LoginScreenState();
+  _MobileInputScreen createState() => _MobileInputScreen();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _MobileInputScreen extends State<MobileInputScreen> {
   final _contactEditingController = TextEditingController();
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   var _dialCode="";
@@ -26,15 +28,52 @@ class _LoginScreenState extends State<LoginScreen> {
     if (phoneNumber.isEmpty) {
       showErrorDialog(context, 'Contact number can\'t be empty.');
     } else {
-      final responseMessage =
-      //await Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
-      Navigator.pushReplacementNamed(context, '/home');
-      if (responseMessage != null) {
-        showErrorDialog(context, responseMessage as String);
+      bool isMobilePresent = await submitData('$_dialCode${phoneNumber}');
+      if(isMobilePresent){
+        Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
+      }else{
+        final responseMessage = //Call OTP Channel
+        await Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
+        //Navigator.pushReplacementNamed(context, '/home');
+        if (responseMessage != null) {
+          showErrorDialog(context, responseMessage as String);
+        }
       }
+
     }
   }
 
+  Future<bool> submitData(mobileno) async{
+    try {
+      String json = await _toJson(mobileno);
+      String bodyValue  = await NetworkUtil.callPostService(json,Constant.BASE_URL.toString()+'signin/',Constant.headers);
+      if(bodyValue.contains('errorResponse')){
+
+      }else {
+        bool IsMobieAvalable  = true;//json['IsMobieAvalable'];
+        if ( IsMobieAvalable == true) {
+          return true;
+        }else{
+          return false;
+        }
+      }
+      print(bodyValue);
+    } catch(_){}
+
+  }
+
+  Future<String> _toJson(mobileno) async{
+    var mapData =  toJson(mobileno);
+    String json = Constant.JSON.encode(mapData);
+    return json;
+
+  }
+
+  Map<String, dynamic> toJson(mobileNo) {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['mobileno'] = mobileNo;
+    return data;
+  }
   //callback function of country picker
   void _callBackFunction(String name, String dialCode, String flag) {
     _dialCode = dialCode;

@@ -19,14 +19,16 @@ class PlaceLiveChickenOrder extends StatefulWidget {
 class _PlaceLiveChickenOrder extends State<PlaceLiveChickenOrder> {
 
   LiveChickenModel model = LiveChickenModel();
-  List _items =  new List<LiveChickenModel>(); // to store Live chicken data
+  List _items =  new List<LiveChickenModel>();
+  GlobalKey<FormState> _formKey = GlobalKey<FormState>();// to store Live chicken data
 
   final myController = TextEditingController();
 
   void _addComment() {
     setState(() {
         _items.add(model);
-        model= new LiveChickenModel();// add new Chicken Type and weight to the existing list
+        model= new LiveChickenModel();
+        _formKey = GlobalKey<FormState>();// add new Chicken Type and weight to the existing list
       });
   }
 
@@ -51,7 +53,9 @@ class _PlaceLiveChickenOrder extends State<PlaceLiveChickenOrder> {
                     style: TextStyle(color: Colors.black, fontSize: 20),
                   ),
                   SizedBox(height: 40.0),
-                  Row(
+                Form(
+                    key: _formKey,
+                    child:Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: <Widget>[
@@ -77,10 +81,7 @@ class _PlaceLiveChickenOrder extends State<PlaceLiveChickenOrder> {
                                 },
                               ).toList(),
                               onChanged: (val) {
-                                    setState(() {
-                                      model.type = val.toString();
-                                    });
-
+                                   model.type = val.toString();
 
                               },
                             ),),
@@ -91,12 +92,18 @@ class _PlaceLiveChickenOrder extends State<PlaceLiveChickenOrder> {
                                 decoration: textInputDecoration.copyWith(
                                     hintText: 'Weight in Ton '),
                                 validator: (val) => val.isEmpty ? 'Enter  Weight ' : null,
+                                onSaved: (val){
+                                  model.weight = double.parse(val);
+                                },
                                 onChanged: (val) {
-                                  setState(() => model.weight = double.parse(val));
-                                }),),
+                                   _formKey.currentState.save();
+                                }
+
+                                ),),
 
 
                       ]),
+                ),
                   SizedBox(height: 20),
                   MaterialButton(
                     onPressed: () {
@@ -203,11 +210,12 @@ class _PlaceLiveChickenOrder extends State<PlaceLiveChickenOrder> {
 
     List send = List();
     for(int i=0;i<_items.length;i++){
-      model.isActive = true;
-      model.inQueue = 'Admin';
-      model.isActive = true;
-      model.mobileNo = '9987272169';
-      var mapData =  model.toJson();
+      _items[i].isActive = true;
+      _items[i].inQueue = 'Admin';
+      _items[i].isActive = true;
+      _items[i].mobileNo = '9987272169';
+      print(model);
+      var mapData =  _items[i].toJson();
       send.add(mapData);
     }
 

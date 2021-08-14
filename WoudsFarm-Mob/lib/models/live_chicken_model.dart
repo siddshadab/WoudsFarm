@@ -1,6 +1,9 @@
+import 'package:wouds_farm/models/MetaData.dart';
+
 class LiveChickenModel {
   String type;
   double weight;
+  int serverWeight;
   String mobileNo;
   //Add below in Single Table Later
   double farmerQuote;
@@ -10,10 +13,15 @@ class LiveChickenModel {
   bool isActive;
   String quoterMobileNo;
   String address;
+  DateTime orderDate;
+  bool isOrderFinalized;
+
+
 
 
 
   LiveChickenModel( {
+    this.serverWeight,
     this.type,
     this.weight,
     this.mobileNo,
@@ -24,6 +32,7 @@ class LiveChickenModel {
     this.quoterMobileNo,
     this.address,
     this.inQueue,
+
   });
 
   @override
@@ -33,7 +42,7 @@ class LiveChickenModel {
 
   LiveChickenModel.fromJson(Map<String, dynamic> json) {
     type = json['type'];
-    weight = json['weight'];
+    serverWeight = json['weight'];
     mobileNo = json['mobileNo'];
     farmerQuote = json['farmerQuote'];
     ourQuote = json['ourQuote'];
@@ -68,11 +77,13 @@ class LiveChickenModelFromServer {
   String id;
   String mobileNo;
   List<LiveChickenModel> data;
+  Metadata metadata;
 
   LiveChickenModelFromServer( {
     this.mobileNo,
     this.id,
     this.data,
+    this.metadata
   });
 
   @override
@@ -82,6 +93,9 @@ class LiveChickenModelFromServer {
 
   LiveChickenModelFromServer.fromServerJson(Map<String, dynamic> json) {
     id = json['_id'] != null ?json['_id'] : null;
+    metadata = json['metadata'] != null
+        ? new Metadata.fromJson(json['metadata'])
+        : null;
     mobileNo = json['mobileNo'];
     if (json['data'] != null) {
       data = new List<LiveChickenModel>();
