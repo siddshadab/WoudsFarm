@@ -6,7 +6,6 @@ import 'package:wouds_farm/shared/Constant.dart';
 import 'package:wouds_farm/shared/NetworkUtil.dart';
 import 'package:wouds_farm/widgets/TextInputDecoration.dart';
 
-
 class LoginRegistration extends StatefulWidget {
   const LoginRegistration({Key key}) : super(key: key);
 
@@ -15,7 +14,6 @@ class LoginRegistration extends StatefulWidget {
 }
 
 class _LoginRegistration extends State<LoginRegistration> {
-
   final _formKey = GlobalKey<FormState>();
   UserModel model = UserModel();
   String tempPassword;
@@ -23,15 +21,12 @@ class _LoginRegistration extends State<LoginRegistration> {
   @override
   void initState() {
     super.initState();
-
   }
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: const Color.fromARGB(255, 244, 237, 232),
-
         body: SingleChildScrollView(
           child: Column(children: [
             Padding(
@@ -49,30 +44,37 @@ class _LoginRegistration extends State<LoginRegistration> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                            hintText: 'Enter First Name',labelText: 'First Name'),
-                        inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val.isEmpty ? 'First Name is required' : null,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Enter First Name',
+                              labelText: 'First Name'),
+                          inputFormatters: [
+                            new LengthLimitingTextInputFormatter(30)
+                          ],
+                          validator: (val) =>
+                              val.isEmpty ? 'First Name is required' : null,
                           onSaved: (val) {
                             model.fname = val;
                           },
-                    onChanged: (val){
-            _formKey.currentState.save();
-            }
-                      ),
+                          onChanged: (val) {
+                            _formKey.currentState.save();
+                          }),
                       SizedBox(height: 20.0),
                       TextFormField(
                         decoration: textInputDecoration.copyWith(
-                            hintText: 'Enter Last Name',labelText: 'Last Name'),
-                        inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val.isEmpty ? 'Last Name is required' : null,
-                          onSaved: (val) async{
-                            model.lname = val;
-                          },
-                          onChanged: (val){
-                            _formKey.currentState.save();
-                          },
-                       strutStyle: StrutStyle(
+                            hintText: 'Enter Last Name',
+                            labelText: 'Last Name'),
+                        inputFormatters: [
+                          new LengthLimitingTextInputFormatter(30)
+                        ],
+                        validator: (val) =>
+                            val.isEmpty ? 'Last Name is required' : null,
+                        onSaved: (val) async {
+                          model.lname = val;
+                        },
+                        onChanged: (val) {
+                          _formKey.currentState.save();
+                        },
+                        strutStyle: StrutStyle(
                           fontFamily: 'Roboto',
                           fontSize: 14,
                           height: 1.7,
@@ -81,63 +83,68 @@ class _LoginRegistration extends State<LoginRegistration> {
                       ),
                       SizedBox(height: 20.0),
                       TextFormField(
-                          obscureText: true,
-                        decoration: textInputDecoration.copyWith(
-                            hintText: 'Enter Email',labelText: 'Email'),
-                        inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val.isEmpty ? 'Email is required' : null,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Enter Email', labelText: 'Email'),
+                          inputFormatters: [
+                            new LengthLimitingTextInputFormatter(30)
+                          ],
+                          validator: Constant.validateEmail,
                           onSaved: (val) {
                             model.email = val;
                           },
-                          onChanged: (val){
+                          onChanged: (val) {
                             _formKey.currentState.save();
-                          }
-
-                      ),
-                      SizedBox(height: 20.0),
-                      TextFormField(
-                        decoration: textInputDecoration.copyWith(
-                            hintText: 'Enter Password',labelText: 'Password'),
-                        inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) => val.isEmpty ? 'Password is required' : null,
-                       onSaved: (val) {
-            model.password = val;
-            },
-                          onChanged: (val){
-                            _formKey.currentState.save();
-                          }
-                      ),
+                          }),
                       SizedBox(height: 20.0),
                       TextFormField(
                           obscureText: true,
-                        decoration: textInputDecoration.copyWith(
-                            hintText: 'Enter Match Password',labelText: 'Match Password'),
-                        inputFormatters: [new LengthLimitingTextInputFormatter(30)],
-                        validator: (val) {
-                          print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-                          print(model);
-                          print(model.toString());
-                          print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXENDS");
-                          if(val.isEmpty){
-                            return 'Match Pasword is required';
-                          }else if(val !=model.password){
-                            return 'Passwords Are not matching';
-                          }
-                          return null;
-                        },
-                        onSaved: (val) {
-                          tempPassword = val;
-                        },
-
-                          onChanged: (val){
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Enter Password',
+                              labelText: 'Password'),
+                          inputFormatters: [
+                            new LengthLimitingTextInputFormatter(30)
+                          ],
+                          validator: (val) =>
+                              val.isEmpty ? 'Password is required' : null,
+                          onSaved: (val) {
+                            model.password = val;
+                          },
+                          onChanged: (val) {
                             _formKey.currentState.save();
-                          }
-                      ),
+                          }),
                       SizedBox(height: 20.0),
-                      DropdownButton(
+                      TextFormField(
+                          obscureText: true,
+                          decoration: textInputDecoration.copyWith(
+                              hintText: 'Enter Match Password',
+                              labelText: 'Match Password'),
+                          inputFormatters: [
+                            new LengthLimitingTextInputFormatter(30)
+                          ],
+                          validator: (val) {
+                            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+                            print(model);
+                            print(model.toString());
+                            print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXENDS");
+                            if (val.isEmpty) {
+                              return 'Match Pasword is required';
+                            } else if (val != model.password) {
+                              return 'Passwords Are not matching';
+                            }
+                            return null;
+                          },
+                          onSaved: (val) {
+                            tempPassword = val;
+                          },
+                          onChanged: (val) {
+                            _formKey.currentState.save();
+                          }),
+                      SizedBox(height: 20.0),
+                      DropdownButtonFormField(
+                        decoration: textInputDecoration.copyWith(
+                            hintText: 'Type Of Customer',
+                            labelText: 'Customer Type'),
                         dropdownColor: Colors.white,
-                        hint: Text('Customer Type ',
-                            style: TextStyle(color: Colors.black)),
                         isExpanded: true,
                         iconSize: 30.0,
                         style: TextStyle(color: Colors.blue),
@@ -147,7 +154,7 @@ class _LoginRegistration extends State<LoginRegistration> {
                           'Restaurant ',
                           'Retailer',
                         ].map(
-                              (val) {
+                          (val) {
                             return DropdownMenuItem<String>(
                               value: val,
                               child: Text(
@@ -159,8 +166,8 @@ class _LoginRegistration extends State<LoginRegistration> {
                         ).toList(),
                         onChanged: (val) {
                           setState(
-                                () {
-                                  model.groupcd = val.toString();
+                            () {
+                              model.groupcd = val.toString();
                             },
                           );
                         },
@@ -170,7 +177,7 @@ class _LoginRegistration extends State<LoginRegistration> {
                       ),
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(primary: Colors.brown),
-                        onPressed: () async{
+                        onPressed: () async {
                           print("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                           print(model);
                           print(model.toString());
@@ -179,7 +186,6 @@ class _LoginRegistration extends State<LoginRegistration> {
                           if (_formKey.currentState.validate()) {
                             _formKey.currentState.save();
                             await submitData();
-
                           }
                         },
                         child: Text("Proceed"),
@@ -187,34 +193,29 @@ class _LoginRegistration extends State<LoginRegistration> {
                     ],
                   ),
                 )),
-
           ]),
         ));
   }
 
-  submitData() async{
+  submitData() async {
     print("XXXXXXXXXXXX");
     print(model);
     try {
       String json = await _toJson();
-      String bodyValue  = await NetworkUtil.callPostService(json,Constant.BASE_URL.toString()+'signup/',Constant.headers);
-      if(bodyValue.contains('errorResponse')){
-
-      }else{
+      String bodyValue = await NetworkUtil.callPostService(
+          json, Constant.BASE_URL.toString() + 'signup/', Constant.headers);
+      if (bodyValue.contains('errorResponse')) {
+      } else {
         //Navigator.pushReplacementNamed(context, '/businessRegistration');
         Navigator.pushReplacementNamed(context, '/login');
       }
       print(bodyValue);
-    } catch(_){}
-
+    } catch (_) {}
   }
 
-  Future<String> _toJson() async{
-    var mapData =  model.toJson();
+  Future<String> _toJson() async {
+    var mapData = model.toJson();
     String json = Constant.JSON.encode(mapData);
     return json;
-
   }
 }
-
-

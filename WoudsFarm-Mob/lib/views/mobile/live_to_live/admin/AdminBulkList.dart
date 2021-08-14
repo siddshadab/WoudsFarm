@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wouds_farm/models/live_chicken_model.dart';
 import 'package:wouds_farm/shared/Constant.dart';
 import 'package:wouds_farm/shared/NetworkUtil.dart';
@@ -32,7 +34,18 @@ class _AdminBulkList extends State<AdminBulkList> {
             List<LiveChickenModelFromServer> data = snapshot.data;
             return  Scaffold(
                 backgroundColor: const Color.fromARGB(255, 244, 237, 232),
-                appBar: AppBar(title: Text('Admin Bulk List'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),),
+                appBar: AppBar(title: Text('Admin Bulk List'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),
+                  actions: <Widget>[
+                    FlatButton(
+                      textColor: Colors.white,
+                      onPressed: () {
+                        showErrorDialog(context, 'Are you sure you want to Logout');
+                      },
+                      child: Text("Logout"),
+                      shape: CircleBorder(side: BorderSide(color: Colors.transparent)),
+                    ),
+                  ],
+                ),
                 body:_LiveChickenListView(data));
           } else if (snapshot.hasError) {
             return Center(child: Text("${snapshot.error}"),);
@@ -263,4 +276,35 @@ class _AdminBulkList extends State<AdminBulkList> {
       color: Colors.blue[500],
     ),
   );
+
+  //Alert dialogue to show error and response
+  void showErrorDialog(BuildContext context, String message) {
+    // set up the AlertDialog
+    final CupertinoAlertDialog alert = CupertinoAlertDialog(
+      title: const Text('Message'),
+      content: Text('\n$message'),
+      actions: <Widget>[
+        CupertinoDialogAction(
+          isDefaultAction: true,
+          child: const Text('Yes'),
+          onPressed: () async{
+            SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+            sharedPreferences.setString('fname','');
+            sharedPreferences.setString('lname', '');
+            sharedPreferences.setString('email', '');
+            sharedPreferences.setString('mobileno', '');
+            sharedPreferences.setString('groupcd', '');
+            Navigator.pushReplacementNamed(context, '/mobileInputScreen');
+          },
+        )
+      ],
+    );
+    // show the dialog
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
 }
