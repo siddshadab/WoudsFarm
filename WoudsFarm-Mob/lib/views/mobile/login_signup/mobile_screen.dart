@@ -34,13 +34,16 @@ class _MobileScreen extends State<MobileScreen> {
           Navigator.pushReplacementNamed(context, '/liveChickenOrderListFarmer')
               as Widget;
     } else if (user.groupcd == 'Trader') {
-      Navigator.pushReplacementNamed(context, '/home');
+      widget = Navigator.pushReplacementNamed(context, '/home') as Widget;
     } else if (user.groupcd == 'Admin') {
-      Navigator.pushReplacementNamed(context, '/liveChickenOrderListAdmin');
+      widget =
+          Navigator.pushReplacementNamed(context, '/liveChickenOrderListAdmin')
+              as Widget;
     } else if (user.groupcd == 'Restaurant') {
-      Navigator.pushReplacementNamed(context, '/home');
+      widget = Navigator.pushReplacementNamed(context, '/home') as Widget;
     } else {
-      widget = Navigator.pushReplacementNamed(context, '/mobileInputScreen') as Widget;
+      widget = Navigator.pushReplacementNamed(context, '/mobileInputScreen')
+          as Widget;
     }
     setState(() {});
   }

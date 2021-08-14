@@ -79,3 +79,41 @@ exports.postSignIn = async function(req,res){
     });
 }
 
+
+exports.postMobileCheck = async function(req,res){
+
+    console.log(req.body)
+    if(!req.body.mobileno){
+         res.send({
+            success: false,
+            message: "Error: Mobile field can't be blank"
+        });
+    }
+
+    User.find({
+        mobileno: req.body.mobileno
+    },(err, users)=>{
+        if(err){
+             res.send({
+                success: false,
+                message: 'Error: Server error'
+            });
+        }
+     
+        if(users.length != 1){
+            // console.log(users);
+            // console.log(users.length);
+             res.send({
+                success: false,
+                IsMobieAvalable: false
+            });
+        }else{
+            res.send({
+                success: true,
+                IsMobieAvalable: true
+            });
+        }
+
+    });
+
+}

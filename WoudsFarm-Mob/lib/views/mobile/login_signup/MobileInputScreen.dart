@@ -30,7 +30,7 @@ class _MobileInputScreen extends State<MobileInputScreen> {
     } else {
       bool isMobilePresent = await submitData('$_dialCode${phoneNumber}');
       if(isMobilePresent){
-        Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
+        Navigator.pushNamed(context, '/login', arguments: '$_dialCode${phoneNumber}');
       }else{
         final responseMessage = //Call OTP Channel
         await Navigator.pushNamed(context, '/otpScreen', arguments: '$_dialCode${phoneNumber}');
@@ -46,11 +46,13 @@ class _MobileInputScreen extends State<MobileInputScreen> {
   Future<bool> submitData(mobileno) async{
     try {
       String json = await _toJson(mobileno);
-      String bodyValue  = await NetworkUtil.callPostService(json,Constant.BASE_URL.toString()+'signin/',Constant.headers);
+      String bodyValue  = await NetworkUtil.callPostService(json,Constant.BASE_URL.toString()+'signin/mobileCheck',Constant.headers);
       if(bodyValue.contains('errorResponse')){
 
       }else {
-        bool IsMobieAvalable  = true;//json['IsMobieAvalable'];
+        print(bodyValue);
+        Map<String, dynamic> json = Constant.JSON.decode(bodyValue);
+        bool IsMobieAvalable  = json['IsMobieAvalable'];
         if ( IsMobieAvalable == true) {
           return true;
         }else{
