@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:wouds_farm/models/UserModel.dart';
@@ -11,12 +13,24 @@ class MobileScreen extends StatefulWidget {
 Widget widget;
 
 class _MobileScreen extends State<MobileScreen> {
+
   @override
   void initState() {
-    // TODO: implement initState
-    super.initState();
-    route(context);
+    Timer(Duration(seconds: 3),
+            ()=> route(context),
+    );
   }
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        color: Colors.white,
+        child:  new Image(
+          image: new AssetImage('assets/icons/Poster.png'),
+        ),
+    );
+  }
+
+
 
   Future<Widget> route(BuildContext context) async {
     UserModel user = new UserModel();
@@ -43,12 +57,5 @@ class _MobileScreen extends State<MobileScreen> {
     setState(() {});
   }
 
-  @override
-  Widget build(BuildContext context) {
-    return widget != null
-        ? widget
-        : new Center(
-            child: Text('Loading'),
-          );
-  }
+
 }

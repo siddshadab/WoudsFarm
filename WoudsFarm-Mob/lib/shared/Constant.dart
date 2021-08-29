@@ -4,11 +4,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Constant {
-  static const String BASE_URL = 'http://192.168.130.106:8090/api/v1/';
-  static const bool isHttpsCallNeeded = false;
-
-  //static const String BASE_URL = 'https://woudsfarm-server.herokuapp.com/api/v1/';
+  //static const String BASE_URL = 'http://192.168.130.106:8090/api/v1/';
   //static const bool isHttpsCallNeeded = false;
+
+  static const String BASE_URL = 'https://woudsfarm-server.herokuapp.com/api/v1/';
+  static const bool isHttpsCallNeeded = false;
   static final headers = {'Content-Type': 'application/json'};
   static const JsonCodec JSON = const JsonCodec();
 

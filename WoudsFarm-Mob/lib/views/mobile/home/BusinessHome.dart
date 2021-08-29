@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_sparkline/flutter_sparkline.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart';
@@ -14,12 +16,15 @@ class BusinessHome extends StatefulWidget {
 }
 
 class _BusinessHome extends State<BusinessHome> {
+  var data = [0.0, 1.0, 1.5, 2.0, 0.0, 0.0, -0.5, -1.0, -0.5, 0.0, 0.0];
   SharedPreferences prefs;
   String groupcd;
   String fname;
   String lname;
   String email;
   String mobileno;
+  int currentIndex = 0;
+
 
   @override
   void initState() {
@@ -100,28 +105,50 @@ class _BusinessHome extends State<BusinessHome> {
     );
   }
 
+  void onTabTapped(int index) {
+    setState(() {
+      currentIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(title: Text('Dashboard'),backgroundColor: const Color.fromARGB(255, 244, 237, 232),),
+      bottomNavigationBar: new BottomNavigationBar(
+          onTap: onTabTapped, // new
+          currentIndex: currentIndex,
+          fixedColor: Colors.red,
+          items: [
+            BottomNavigationBarItem(
+              icon:new Icon(FontAwesomeIcons.dashcube),
+              title: Text("Dashboard"),
+            ),
+            BottomNavigationBarItem(
+              icon:new Icon(FontAwesomeIcons.list),
+              title: Text("bulkList"),
+            ),
+            BottomNavigationBarItem(
+              icon:new Icon(FontAwesomeIcons.bitcoin),
+              title: Text("Bargain"),
+            )
+          ]),
       body: new Column(
         children: <Widget>[
           new Expanded(
             //fit: FlexFit.tight,
-            flex: 4,
+            flex: 5,
             child:
                    Container(
-                     height: size.height/3,
+                     height: size.height/2.5,
                      width: size.width,
                      color: const Color.fromARGB(255, 244, 237, 232),
                      child:    Card(
                         //semanticContainer: true,
                         //clipBehavior: Clip.antiAliasWithSaveLayer,
-                        child:Image.asset(
-                          'assets/images/wouds_farm.jpg',
-                          fit: BoxFit.fill,
-                        ),
+                        child:  mychart1Items("Sales by Month","421.3M","+12.9% of target"),
+
                          shape: RoundedRectangleBorder(
                          borderRadius: BorderRadius.circular(10.0),
                          ),
@@ -190,6 +217,63 @@ class _BusinessHome extends State<BusinessHome> {
       builder: (BuildContext context) {
         return alert;
       },
+    );
+  }
+
+  Material mychart1Items(String title, String priceVal,String subtitle) {
+    return Material(
+      color: Colors.white,
+      elevation: 14.0,
+      borderRadius: BorderRadius.circular(24.0),
+      shadowColor: Color(0x802196F3),
+      child: Center(
+        child: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+
+                  Padding(
+                    padding: EdgeInsets.all(1.0),
+                    child: Text(title, style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.blueAccent,
+                    ),),
+                  ),
+
+                  Padding(
+                    padding: EdgeInsets.all(1.0),
+                    child: Text(priceVal, style: TextStyle(
+                      fontSize: 30.0,
+                    ),),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.all(1.0),
+                    child: Text(subtitle, style: TextStyle(
+                      fontSize: 20.0,
+                      color: Colors.blueGrey,
+                    ),),
+                  ),
+
+                  Padding(
+                    padding: EdgeInsets.all(1.0),
+                    child: new Sparkline(
+                      data: data,
+                      lineColor: Color(0xffff6101),
+                      pointsMode: PointsMode.all,
+                      pointSize: 8.0,
+                    ),
+                  ),
+
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
