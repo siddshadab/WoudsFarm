@@ -53,12 +53,13 @@ if(process.env.ENV === "dev"){
         });
 }else{
     console.log("localhost");
-    url = `mongodb://localhost:27017/woudsfarm`;    
+   // url = `mongodb://localhost:27017/woudsfarm`;    
+   url=`mongodb+srv://username:abc@cluster0.gjukq.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritya`
     mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true,useCreateIndex:true}).then(async (db) => {
         console.log('Connected to MongoDB server',url);
     })
     .catch((error) => {
-        console.log('could not connect to MongoDB server',url);
+        console.log('could not connect to MongoDB server',url,error);
     });
 
 }
