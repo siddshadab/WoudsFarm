@@ -25,10 +25,12 @@ class _MobileInputScreen extends State<MobileInputScreen> {
 
   //Login click with contact number validation
   Future<void> clickOnLogin(BuildContext context) async {
+    Constant.onLoading(context);
     if (phoneNumber.isEmpty) {
       showErrorDialog(context, 'Contact number can\'t be empty.');
     } else {
       bool isMobilePresent = await submitData('$_dialCode${phoneNumber}');
+      Navigator.pop(context);
       if(isMobilePresent){
         Navigator.pushNamed(context, '/login', arguments: '$_dialCode${phoneNumber}');
       }else{
@@ -174,7 +176,7 @@ class _MobileInputScreen extends State<MobileInputScreen> {
                         height: 60,
 
                         child: IntlPhoneField(
-
+                         initialCountryCode: 'IN',
                           validator: (value) {
                             if (value == null || value.isEmpty) {
                               return 'Please enter Phone Number';
@@ -190,6 +192,7 @@ class _MobileInputScreen extends State<MobileInputScreen> {
                           onChanged: (phone) {
                             print(phone.completeNumber);
                             phoneNumber = phone.number as String;
+                            _dialCode=phone.countryCode as String;
                           },
                           onCountryChanged: (phone) {
                             _dialCode=phone.countryCode as String;

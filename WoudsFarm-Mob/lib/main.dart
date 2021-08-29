@@ -1,7 +1,10 @@
 // @dart=2.9
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:wouds_farm/DummyCharts.dart';
 import 'package:wouds_farm/models/UserModel.dart';
+import 'package:wouds_farm/views/mobile/Bidding.dart';
+import 'package:wouds_farm/views/mobile/BiddingChats.dart';
 import 'package:wouds_farm/views/mobile/home/BusinessHome.dart';
 import 'package:wouds_farm/views/mobile/home/OrderPage.dart';
 import 'package:wouds_farm/views/mobile/kyc_form/BusinessRegistration.dart';
@@ -55,6 +58,9 @@ class MyApp extends StatelessWidget {
         '/liveChickenOrderListAdmin':(BuildContext ctx) => AdminBulkList(),
         '/liveChickenOrderDetailedListAdmin':(BuildContext ctx) => AdminBulkDetailedList(),
         '/mobileInputScreen':(BuildContext ctx) => MobileInputScreen(),
+        '/bidding':(BuildContext ctx) => BiddingScreen(),
+        '/biddingChats':(BuildContext ctx) => BiddingChats(),
+        '/dashboard':(BuildContext ctx) => DummyCharts(),
       },
     );
   }

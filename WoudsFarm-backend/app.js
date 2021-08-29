@@ -23,6 +23,7 @@ var errorHandler = require("./utils/errorHandler.js");
 var config = require("./config");
 var logger = require("./utils/logger.js");
 const liveToLive = require('./routes/LiveToLive');
+const biddingChats = require('./routes/BiddingChats');
 
 let url = "";
 
@@ -54,7 +55,7 @@ if(process.env.ENV === "dev"){
 }else{
     console.log("localhost");
    // url = `mongodb://localhost:27017/woudsfarm`;    
-   url=`mongodb+srv://username:abc@cluster0.gjukq.mongodb.net/myFirstDatabase?retryWrites=true&w=majoritya`
+   url=`mongodb+srv://username:abc@cluster0.gjukq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
     mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true,useCreateIndex:true}).then(async (db) => {
         console.log('Connected to MongoDB server',url);
     })
@@ -83,6 +84,7 @@ app.use('/api/v1/signup', signUp);
 app.use('/api/v1/logout', logOut);
 app.use('/api/v1/adpost',adPost);
 app.use('/api/v1/liveToLive',liveToLive);
+app.use('/api/v1/biddingChats',biddingChats);
 
 
 

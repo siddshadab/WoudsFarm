@@ -45,7 +45,7 @@ class NetworkUtil {
 
 //common service
   static Future<String> callGetService(String url) async{
-
+print(url);
     if(Constant.isHttpsCallNeeded){
       return callGetServiceHttps(url);
     }
@@ -78,13 +78,21 @@ class NetworkUtil {
       }).then((HttpClientResponse response) async {
         if (response == null || response.statusCode == 500 ||
             response.toString() == 'null') {
-          responsebody = "404";
+          print("status " + response.statusCode.toString() + " bodyval " +
+              response.transform(utf8.decoder).join().toString());
+          return response.statusCode.toString()+" : errorResponse";
         } else if (response.statusCode == 201 || response.statusCode == 200) {
+
           responsebody = await response.transform(utf8.decoder).join();
+          print(responsebody.toString() +"    here is data ");
+
         }
 
       });
-    }catch(_){}
+    }catch(_){
+      print(_);
+      return "errorResponse";
+    }
     return responsebody;
   }
 

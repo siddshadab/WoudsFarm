@@ -28,6 +28,7 @@ exports.postSignIn = async function(req,res){
     },(err, users)=>{
         // console.log(users);
              if(err){
+                 console.log(err)
              res.send({
                 success: false,
                 message: 'Error: Server error'
@@ -56,6 +57,7 @@ exports.postSignIn = async function(req,res){
         userSession.userId = user._id;
         userSession.save((err, doc) => {
             if(err){
+                console.log(err)
                  res.send({
                     success: false,
                     message: 'Error: Server error'
@@ -119,4 +121,22 @@ exports.postMobileCheck = async function(req,res){
 
     });
 
+}
+
+exports.getAllUsers = async function(req,res){
+
+    var getUsers = req.query.getUsers
+    if(getUsers!==undefined){
+        User.find({groupcd:getUsers==='Admin'?'Farmer':'Admin'}, function(err, data){
+            console.log(">>>> " + data );
+            res.send({
+                data
+            });
+        });
+    }else{
+        res.send({
+            message: "No Data",
+            messagecode: 3
+        }); 
+    }
 }

@@ -84,21 +84,28 @@ class _Login extends State<Login> {
   }
 
   submitData() async {
+    Constant.onLoading(context);
     print("XXXXXXXXXXXX");
     print(model);
     try {
       String json = await _toJson();
       String bodyValue = await NetworkUtil.callPostService(
           json, Constant.BASE_URL.toString() + 'signin/', Constant.headers);
+
       if (bodyValue.contains('errorResponse')) {
+        Navigator.pop(context);
+        Constant.showErrorDialog(context, 'Something went wrong');
       } else {
         Map<String, dynamic> json = Constant.JSON.decode(bodyValue);
-        UserModel mod = UserModel.fromJson(json['userData'][0]);
-
+        UserModel mod =null;
+        Navigator.pop(context);
+        try {
+          mod = UserModel.fromJson(json['userData'][0]);
+        }catch(_){}
         if (json != null && json['success'] == true) {
           setDataForSignUpInUsers(mod);
 
-          if (json['isBusinessData'] == true) {
+          if (json['isBusinessData'] == true && !(mod.groupcd == 'Admin')) {
             Navigator.pushReplacementNamed(context, '/businessRegistration');
           } else {
             if (mod.groupcd == 'Farmer' || mod.groupcd == 'Admin') {
@@ -111,6 +118,11 @@ class _Login extends State<Login> {
               Navigator.pushReplacementNamed(context, '/mobileInputScreen');
             }
           }
+        }else{
+          print(json);
+         // Navigator.pop(context);
+          Constant.showErrorDialog(context, json['message']);
+
         }
         //Navigator.pushReplacementNamed(context, '/businessRegistration');
       }

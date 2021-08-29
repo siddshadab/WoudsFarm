@@ -314,13 +314,31 @@ class _NewOrderState extends State<NewOrder> {
                           ),
                         ),
                       ),
+                      GestureDetector(
+                        onTap: _showPersistantBottomSheetCallBack,
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                          child: Column(
+                            children: [
+                              Image.network(
+                                "https://img.pngio.com/clipartistnet-clip-art-chicken-svg-png-black-and-white-chicken-999_1034.png",
+                                height: 50,
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text("Paper Rate")
+                            ],
+                          ),
+                        ),
+                      ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Column(
                           children: [
-                            Image.network(
-                              "http://clipart-library.com/img/1378302.jpg",
-                              height: 50,
+                            Image.asset(
+                              'assets/images/clipboard.png',
+                              fit: BoxFit.fill,
                             ),
                             SizedBox(
                               height: 10,
