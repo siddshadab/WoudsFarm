@@ -55,7 +55,7 @@ if(process.env.ENV === "dev"){
 }else{
     console.log("localhost");
    // url = `mongodb://localhost:27017/woudsfarm`;    
-   url=`mongodb+srv://username:abc@cluster0.gjukq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+   url=``
     mongoose.connect(url,{useNewUrlParser:true,useUnifiedTopology: true,useCreateIndex:true}).then(async (db) => {
         console.log('Connected to MongoDB server',url);
     })
